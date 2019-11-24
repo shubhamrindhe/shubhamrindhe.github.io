@@ -8,13 +8,12 @@
     animation: ascii-stick-loader3 500ms 500ms forwards/*steps(1, end)*/   ;
 }
 
-.logo-loader:after{
+.glitch:after{
 	content:"0b11111001110.0b110.0b1011";
     display:block;
-    font-family:Couriar New;
     font-weight:900;
     font-family:Courier New;
-    animation: ascii-stick-loader3 500ms 500ms forwards/*steps(1, end)*/   ;
+    animation: ascii-stick-loader3 500ms 500ms forwards;
 }
 
 @keyframes ascii-stick-loader{
