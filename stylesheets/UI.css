@@ -10,11 +10,18 @@ body.darkmode{
 	background:black;
 }
 
+.active{
+	display:block;
+}
+.dactive{
+	display:none;
+}
+
 .centroid{
-	position:relative;
-	/*top:50%;
+	position:absolute;
+	top:50%;
 	left:50%;
-	transform:translate(0%,0%);*/
+	transform:translate(0%,0%);
 }
 .centroid-fixed{
 	position:fixed;
@@ -40,11 +47,19 @@ body.darkmode{
 	}
 
 #ascii-art{
-	display:none;
 	z-index:-100;
+	display:none;
+	line-height:8px;
+	font-size:8px;
+	font-weight:bold;
+	white-space:pre;
+	font-family: monospace;
+	color: #000;
+	background: #fff;
 }
 
-body.darkmode #ascii-art span{
+body.darkmode #ascii-art{
+	/*
 	z-index:-100;
 	display:block;
 	line-height:8px;
@@ -52,8 +67,9 @@ body.darkmode #ascii-art span{
 	font-weight:bold;
 	white-space:pre;
 	font-family: monospace;
-	color: white;
-	background: black;
+	*/
+	color: #fff;
+	background: #000;
 }
 
 
@@ -148,12 +164,19 @@ header nav ul li a:hover{
 		padding:0 20px;
 	}
 	header .logo{
-		color:#fff;
+		color:#000;
 		height:50%;
 		line-height:50px;
-		font-size:10px;
+		font-size:15px;
 		float:left;
 		font-weight:bold;
+	}
+	header .blink{
+		font-size:15px;
+	}
+	
+	body.darkmode header .logo{
+		color:#fff;
 	}
 	
 	
@@ -165,17 +188,20 @@ header nav ul li a:hover{
 	.menu-toggle{
 		/*top:0;*/
 		/*float:right;*/
-		color:#fff;
+		color:#000;
 		display:flex;
 		/*width:auto;
 		height:auto;*/
+	}
+	body.darkmode .menu-toggle{
+		color:#fff;
 	}
 	
 	#toggle-nav[type="checkbox"]:checked + nav{
 		position:absolute;
 		width:100%;
 		height:calc(100vh-50px);
-		background:#333;
+		background:none;
 		top:50px;
 		left:0;
 		opacity:1;
@@ -185,22 +211,20 @@ header nav ul li a:hover{
 		position:absolute;
 		width:100%;
 		height:calc(100vh-50px);
-		background:#333;
+		background:none;
+		color:#fff;
 		top:50px;
 		left:200%;
 		opacity:0;
 		transition:0.2s;
 	}
 	
+	a{
+		color:#fff;
+	}
+	
 	#ascii-art span{
-		display:block;
-		line-height:4px;
-		font-size:4px;
-		font-weight:bold;
-		white-space:pre;
-		font-family: monospace;
-		color: white;
-		background: black;
+		display:none;
 	}
 	
 	
