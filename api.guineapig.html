@@ -23,7 +23,7 @@
         request(url.user,function(res){ 
 			usr_data = JSON.parse(res); 
 			console.log(usr_data.avatar_url);
-			document.getElementById('avatar').href = usr_data.avatar_url;
+			document.getElementById('avatar').src = usr_data.avatar_url;
 		});
 	}
 	</script>

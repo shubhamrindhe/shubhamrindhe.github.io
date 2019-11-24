@@ -1,0 +1,90 @@
+.ascii-loader:after{
+    content:"0b11111001110.0b110.0b1011";
+    display:block;
+    font-family:Couriar New; !imporant
+    font-weight:900;
+    font-size:20px;
+    font-family:Courier New;
+    animation: ascii-stick-loader3 500ms 500ms forwards/*steps(1, end)*/   ;
+}
+@keyframes ascii-stick-loader{
+    0%{
+        content:"|";
+    }
+    25%{
+        content:"/";
+    }
+    50%{
+        content:"-";
+    }
+    75%{
+        content:"\\";
+    }
+    100%{
+        content:"|";
+    }
+}
+@keyframes ascii-stick-loader2{
+    0%{
+        content:"[----]";
+    }
+    20%{
+        content:"[>---]";
+    }
+    40%{
+        content:"[>>--]";
+    }
+    60%{
+        content:"[>>>-]";
+    }
+    80%{
+        content:"[>>>>]";
+    }
+    100%{
+        content:"[----]";
+    }
+}
+
+
+@keyframes ascii-stick-loader3{
+	/*
+	1998 : 0b11111001110.0b110.0b1011
+	06 : 0b110
+	11 : 0b1011
+	
+	*/
+	
+    0%{
+        content:"shubhamrindhe.github.io";
+    }
+    10%{
+        content:"$hvdh@wr!nbhe.9!+hud.!0";
+    }
+    20%{
+        content:"$hudh@wr1nbhe.9!+hud.!0";
+    }
+    30%{
+        content:"$hudh@mr1nbhe.9!+hub.!0";
+    }
+    40%{
+        content:"$hudh@mrinbhe.9!thub.!0";
+    }
+	50%{
+        content:"$hubh@mrinbhe.9!thub.!o";
+    }
+	60%{
+        content:"$hubh@mrinbhe.g1thub.!o";
+    }
+	70%{
+        content:"$hubh@mrinbhe.github.io";
+    }
+	80%{
+        content:"shubh@mrinbhe.github.io";
+    }
+	90%{
+        content:"shubh@mrinbhe.github.io";
+    }
+    100%{
+        content:"shubhamrindhe.github.io";
+    }
+}
