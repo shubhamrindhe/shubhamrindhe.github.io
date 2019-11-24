@@ -1,7 +1,7 @@
 .ascii-loader:after{
     content:"0b11111001110.0b110.0b1011";
     display:block;
-    font-family:Couriar New; !imporant
+    font-family:Couriar New;
     font-weight:900;
     font-size:20px;
     font-family:Courier New;
@@ -11,7 +11,7 @@
 .logo-loader:after{
 	content:"0b11111001110.0b110.0b1011";
     display:block;
-    font-family:Couriar New; !imporant
+    font-family:Couriar New;
     font-weight:900;
     font-family:Courier New;
     animation: ascii-stick-loader3 500ms 500ms forwards/*steps(1, end)*/   ;
