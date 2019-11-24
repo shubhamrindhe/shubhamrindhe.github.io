@@ -193,6 +193,14 @@ header nav ul li a:hover{
 		/*width:auto;
 		height:auto;*/
 	}
+	
+	.menu-toggle div{
+		display:flex-box;
+		justify-content:center;
+		align-items:center;
+		text-align:center;
+	}
+	
 	body.darkmode .menu-toggle{
 		color:#fff;
 	}
