@@ -1,0 +1,105 @@
+footer{
+	position:fixed;
+	left:0;
+	bottom:0;
+	
+
+	
+	padding:0 10px;
+	background:none;
+	width:100%;
+	box-sizing:border-box;
+	z-index:10;
+}
+
+
+ul.social{
+	margin:0;
+	padding:0;
+	display:flex;
+	float:right;
+}
+ul.social li{
+	list-style:none;
+	margin:0 5px;
+	display:inline-block;
+	background:#none;
+	/*border:2px solid blue;*/
+}
+
+
+ul.social li a{
+	position:relative;
+	padding:0;
+	margin:0;
+	text-decoration:none;
+	width:50px;
+	height:50px;
+	text-align:center;
+	line-height:30px;
+	font-size:16px;
+	display:inline-block;
+	vertical-align:middle;
+	transition:0.5s;
+	/*background:#f1f1f1;*/
+	overflow:hidden;
+}	
+ul.social li a i:nth-child(1){
+	position:relative;
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	display:block;
+	color:#000;
+	transform:0.5s;
+	transition:0.5s;
+	/*border:2px solid red;*/
+}
+body.darkmode ul.social li a i:nth-child(1){
+	color:#fff;
+}
+
+
+ul.social li a i:nth-child(2){
+	position:relative;
+	left:50%;
+	top:100%;
+	transform:translate(-50%,-50%);
+	display:block;
+	color:#fff;
+	transform:0.5s;
+	transition:0.5s;
+	/*border:2px solid red;*/
+}
+/*
+ul.social li a i:nth-child(1){
+	color:
+}
+*/
+ul.social li:hover a i:nth-child(1){
+	position:absolute;
+	top:-100%;
+}
+ul.social li:hover a i:nth-child(2){
+	position:relative;
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+}
+
+
+ul.social li.instagram:hover a{
+	background:#e4405f;
+}
+ul.social li.github:hover a{
+	background:#24292e;
+}
+ul.social li.twitter:hover a{
+	background:#00aced;
+}
+ul.social li.linkedin:hover a{
+	background:#0077B5;
+}
+ul.social li.stackoverflow:hover a{
+	background:#f48024 ;
+}
