@@ -9,6 +9,16 @@ footer{
 	z-index:10;
 }
 
+#quote{
+	max-width:300px;
+	display:inline-block;
+	height:50px;
+	border:2px solid red;
+	
+	
+	
+}
+
 
 ul.social{
 	margin:0;

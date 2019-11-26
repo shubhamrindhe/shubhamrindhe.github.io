@@ -5,13 +5,14 @@
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 	<meta name="author"   content="shubhamrindhe" id="author"/>
 	<title>Homepage | shubhamrindhe.github.io</title>
+	<link rel="stylesheet" href="stylesheets/fonts.css" type="text/css" />
 	<link rel="stylesheet" href="stylesheets/UI.css" type="text/css" />
 	<link rel="stylesheet" href="stylesheets/social.css" type="text/css" />
 	<link rel="stylesheet" href="stylesheets/loader.css" type="text/css" />
 	<link rel="stylesheet" href="stylesheets/ascii-loaders.css" type="text/css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 		
-	<script type='text/javascript' src='scripts/typed.js'></script>
+	<script type='text/javascript' src='scripts/api.github.js'></script>
 	<script type='text/javascript' src='scripts/main.js'></script>
 	<script type='text/javascript' src='scripts/AJAX.js'></script>
 		
@@ -20,36 +21,61 @@
 	
 	<code id="ascii-art" class="centroid-fixed"></code>
 		
-	<div style="background:rgba(0,0,0,0);width:100%;height:100%;z-index:-99;" class="centroid-fixed">	
+	<div style="background:rgba(0,0,0,0);width:100%;height:100%;z-index:-99;border:2px solid blue;" class="centroid-fixed">
+	
+		<div id="ajax_indicator" class="centroid" style="">
+		</div>
+	
 	</div>	
 	
 	<header>
-		<!--span style="color:red">>_&nbsp;</span-->
-		<div class="logo glitch" id='logo' data='shubhamrindhe.github.io'></div>
-		<span class="blink" style="color:green;">_</span>
-		
-		<label class='menu-toggle' id='menu-toggle' for='toggle-nav' style="z-index:100;height:50%;line-height:50px;"><div><i class="fas fa-bars"></i></div></label>
+		<div>
+			<div class="logo glitch" id='logo'></div>
+			<span class="blink" style="color:green;">_</span>
+		</div>
+		<label class='menu-toggle' id='menu-toggle' for='toggle-nav' style="z-index:100;height:50%;line-height:50px;"><span class="certrify"><i class="fas fa-bars"></i></span></label>
 		<input type='checkbox' style='display:none' id='toggle-nav'/>
 		<nav id='nav'>
 			<ul>
 				<li><a href='#'>Home</a></li>
-				<li><a href='#'>Repositories</a></li>
+				<li id="repos"><a href='#'>Repositories</a></li>
 				<li><a href="./resume/">Resume</a></li>
 				<li id="loader"><a href='#' class="loader"></a></li>
 			</ul>
 		</nav>
-			
 	</header>
 	
 	<div id="container">
-
 	
-	
+		
+		
+		<!--code style="white-space:pre;">
+		.
+		.
+		.
+		.
+		.
+		.
+		.
+		.
+		.
+		.
+		
+		.
+		
+		
+		
+		.
+		..
+		</code-->
 	</div>
 		
 
 	<footer>
 		
+		<!--span id="quote" class="centrify">
+		made with :coffe:
+		</span-->
 	
 		<ul class='social'>
 			<li class="instagram">
@@ -77,7 +103,7 @@
 				</a>
 			</li>
 			<li class="stackoverflow">
-				<a href="https://stackoverflow.com/users/11723966/r-shubham">
+				<a href="https://stackoverflow.com/users/11723966/">
 					<i class="fab fa-stack-overflow fa-lg"></i>
 					<i class="fab fa-stack-overflow fa-2x" ></i>
 				</a>
@@ -88,7 +114,7 @@
 <script>
 	
 onload = function(e){
-	request('./assets/wrench_ascii_art',function(res){document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
+	request('./assets/ascii-arts/wrench_ascii_art',function(res){document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
 		
 	document.getElementById('loader').onclick = function(e){
 		if(document.body.className =='darkmode')
@@ -96,6 +122,8 @@ onload = function(e){
 		else
 			document.body.className = 'darkmode';
 	}
+	
+	document.getElementById('repos').setAttribute('onclick','handler(event,this)');
 }
 </script>	
 </body>
