@@ -3,7 +3,8 @@ body{
 	padding:0;
 	font-family:sans-serif;
 	background:none;
-	overflow:hidden;
+	/*overflow:hidden;*/
+	min-height:100%;
 }
 
 body.darkmode{
@@ -78,8 +79,9 @@ header{
 	left:0;
 	top:0;*/
 	padding:0 100px;
-	background:#26262626;
+	background:none;
 	width:100%;
+	height:55px;
 	box-sizing:border-box;
 	z-index:100;
 }
@@ -103,7 +105,6 @@ header span{
 	font-size:18px;
 	float:left;
 	font-weight:bold;
-	
 }
 
 header nav {
@@ -144,6 +145,11 @@ header nav ul li a:hover{
 	display:none;
 }
 
+
+#container{
+	min-height:calc(100vh - 105px) !important;
+	margin:0 20px;
+}
 
 
 	

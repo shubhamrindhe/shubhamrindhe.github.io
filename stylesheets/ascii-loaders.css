@@ -5,7 +5,7 @@
     font-weight:900;
     font-size:20px;
     font-family:Courier New;
-    animation: ascii-stick-loader3 500ms 500ms forwards/*steps(1, end)*/   ;
+    animation: ascii-stick-loader3 1000ms 9000ms forwards/*steps(1, end)*/   ;
 }
 
 .glitch:after{
@@ -13,7 +13,7 @@
     display:block;
     font-weight:900;
     font-family:Courier New;
-    animation: ascii-stick-loader3 500ms 500ms forwards;
+    animation: ascii-stick-loader3 1000ms 1000ms forwards;
 }
 
 @keyframes ascii-stick-loader{
