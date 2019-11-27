@@ -7,9 +7,34 @@ var url = {
 var handlers = {
 	
 	repos : function(evt,obj,res){
-		document.getElementById('container').innerHTML = res;
+		document.getElementById('container').innerHTML = gen_repos(res);
 	}
 	
+}
+
+function gen_repos(res){
+	obj = JSON.parse(res);
+	console.log(obj);
+	
+	repo_html = '';
+	
+	obj.forEach(function(e,i,l){
+		
+		repo_html += '\
+		<div class="card">\
+			<div class="repo-name"><a href="'+e.html_url+'">'+e.name+'</a></div>\
+			<div>'+e.description+'</div>\
+			<div class="tags"><span class="tag">tags</span></div>\
+			<div class="details">\
+				<span class="lang"><div class="lang-code"></div>'+e.language+'</span>\
+				<span>licance : </span><span>'+(e.licance !=  undefined ? e.licance.name : 'none' )+'</span>\
+			</div>\
+		</div>\
+		';
+		
+		
+	});
+	return repo_html;
 }
 
 function handler(evt,obj){

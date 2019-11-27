@@ -104,17 +104,17 @@ header{
 	z-index:100;
 }
 header .logo{
-	color:#000;
 	height:50%;
 	line-height:50px;
 	font-size:18px;
 	float:left;
 	font-weight:bold;
 }
-
+/*
 body.darkmode .logo{
 	color:#fff;
 }
+*/
 header{
 	z-index:100;
 }
@@ -147,10 +147,11 @@ header nav ul li a{
 	text-decoration:none;
 	display:block;
 }
-
+/*
 body.darkmode header nav ul li a{
 	color:#fff;
 }
+*/
 
 
 header nav ul li a:hover{
@@ -195,7 +196,6 @@ header nav ul li a:hover{
 		padding:0 20px;
 	}
 	header .logo{
-		color:#000;
 		height:50%;
 		line-height:50px;
 		font-size:15px;
@@ -206,15 +206,9 @@ header nav ul li a:hover{
 		font-size:15px;
 	}
 	
-	body.darkmode header .logo{
-		color:#fff;
-	}
-	
-	
 	header nav ul{
 		display:block;
 		text-align:center;
-		background:rgba(255,255,255,0.1);
 	}
 	
 	.menu-toggle{
@@ -270,9 +264,10 @@ header nav ul li a:hover{
 	
 	
 	ul.social li a{
-		
+		/*
 		width:30px;
 		height:30px;
+		*/
 	}
 	
 }
