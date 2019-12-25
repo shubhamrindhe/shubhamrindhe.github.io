@@ -5,6 +5,8 @@ body{
 	background:none;
 	/*overflow:hidden;*/
 	min-height:100%;
+	
+	transition:0.3s;
 }
 
 body.darkmode{

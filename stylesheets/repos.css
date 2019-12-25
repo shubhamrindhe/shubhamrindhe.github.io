@@ -8,6 +8,10 @@
 }
 .card .repo-name a{
 	text-decoration:none;
+	color:#000;
+}
+body.darkmode .card .repo-name a{
+	color:#fff;
 }
 .card div{
 	padding:10px 10px;

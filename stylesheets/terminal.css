@@ -55,9 +55,9 @@
 		min-width:250px;
 		font-size:small;
 		
-		background:rgba(0,0,0,1);
+		/*background:rgba(0,0,0,1);*/
 		
-		border:2px solid lightgrey;
+		/*border:2px solid lightgrey;*/
 		
 		resize: both;
 	}
@@ -69,7 +69,7 @@
 		width:100%;
 		background:lightgrey;
 	}
-	#terminal footer{
+	#terminal .terminalBody{
 		position:absolute;
 		bottom:0;
 		height:calc(100% - 60px);
@@ -116,20 +116,31 @@
 		overflow:hidden;
 	}
 	
-	
+	/*
 	#commandPtr{
 		color:#fff;
 		font-weight:bold;
 		font-size:small;
+		border:1px solid lightgrey;
 	}
+	*/
+	
 	#commandHistory{
 		color:#0f0;
 		padding-left:10px;
 		font-size:medium;
 		z-index:10;
+		
+		display:block;
+	}
+	#commandPtr{
+		color:#fff;
+		font-weight:bold;
+		font-size:small;
+		border:1px solid lightgrey;
 	}
 	#command{
-		border:none;
+		border:1px solid red;
 		resize: none;
 		background:none;
 		outline:none;
@@ -164,7 +175,7 @@
 		left:0;
 		top:40px;
 		width:100%;
-		background:rgba(0,0,0,1);
+		/*background:rgba(0,0,0,1);*/
 	}
 	nav ul{
 		margin:0;
@@ -189,6 +200,96 @@
 	}
 
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*	
+.codeBlock:hover{
+	background-color: rgba(180,180,180,0.3);
+	border:2px solid rgba(180,180,180,0.9);
+	border-radius:10px;
+	padding:2px;
+	margin:3px;
+	transform:scale(1.01);
+	transition-duration:0.1s;
+}
+*/
+
+
+
+
+
+
+/*
+input[type="checkbox"]:not(:checked)+label:after{
+	content:"{...}";
+	display : block; 
+	position:relative;
+	left:100%;
+}
+input[type="checkbox"]:checked+label:after{
+	content:"{...}";
+	display : none;
+}
+*/
+
+/*
+input[type="checkbox"]:not(:checked) + em {
+	display : block;
+}
+input[type="checkbox"]:checked + em {
+	display : none;
+}*/
+
+
+
+input[type="checkbox"]{
+	display : none;
+}
+
+input[type="checkbox"]{
+	transition-duration:0.1s;
+}
+
+input[type="checkbox"]:not(:checked) + label + .codeBlock{
+	display : none;
+}
+input[type="checkbox"]:checked + label + .codeBlock{
+	display : block;
+}
+
+.blockLabel{
+	display:inline-block;
+	padding:1px 5px;
+	border:1px solid rgba(0,0,0,0.8);
+	color:rgba(0,0,0,1);
+	background:rgba(0,0,0,0.3);
+	border-radius:5px;
+}
+
+.blockLabel:hover{
+	background:rgba(0,0,0,0.8);
+	color:#fff;	
+}
+
+input[type="checkbox"]:checked + label:before{
+	display:block;
+	content:" - ";
+}
+
+input[type="checkbox"]:not(:checked) + label:before{
+	display:block;
+	content:"{...}";
+}
 	
 	
 	

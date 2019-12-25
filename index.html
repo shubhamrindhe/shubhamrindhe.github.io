@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-	<meta name="author"   content="shubhamrindhe" id="author"/>
+	<meta name="author" content="shubhamrindhe" id="author"/>
 	<title>Homepage | shubhamrindhe.github.io</title>
 	<link rel="stylesheet" href="stylesheets/fonts.css" type="text/css" />
 	<link rel="stylesheet" href="stylesheets/social.css" type="text/css" />
@@ -13,9 +13,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 	<link rel="stylesheet" href="stylesheets/UI.css" type="text/css" />
 	
-	<script type='text/javascript' src='scripts/api.github.js'></script>
-	<script type='text/javascript' src='scripts/main.js'></script>
-	<script type='text/javascript' src='scripts/AJAX.js'></script>
+	<script type="text/javascript" src="scripts/api.github.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/AJAX.js"></script>
 		
 </head>
 <body class="">
@@ -38,10 +38,11 @@
 		<input type='checkbox' style='display:none' id='toggle-nav'/>
 		<nav id='nav'>
 			<ul>
-				<li><a href='#'>Home</a></li>
-				<li id="repos"><a href='#'>Repositories</a></li>
-				<li><a href="./resume/">Resume</a></li>
-				<li id="loader"><a href='#' class="loader"></a></li>
+				<li><a href="#">Home</a></li>
+				<li id="nav-link-portfolio"><a href="./portfolio">Portfolio</a></li>
+				<li id="nav-link-resume"><a href="./resume/">Resume</a></li>
+				<li id="nav-link-repositories"><a href="#">Repositories</a></li>
+				<li id="loader"><a href="#" class="loader"></a></li>
 			</ul>
 		</nav>
 	</header>
@@ -132,7 +133,7 @@ onload = function(e){
 			document.body.className = 'darkmode';
 	}
 	
-	document.getElementById('repos').setAttribute('onclick','handler(event,this)');
+	document.getElementById('nav-link-repositories').setAttribute('onclick','handler(event,this)');
 }
 </script>	
 </body>

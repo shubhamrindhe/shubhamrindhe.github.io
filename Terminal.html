@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta name="author" content="shubhamrindhe" id="author"/>
 	<link rel="stylesheet" href="stylesheets/terminal.css" type="text/css" />
-	<script type='text/javascript' src='scripts/AJAX.js'></script>
+	
 	<script type='text/javascript' src='scripts/drager.js'></script>
+	<script type='text/javascript' src='scripts/api.github.js'></script>
+	<script type='text/javascript' src='scripts/terminalscript.js'></script>
+	<script type='text/javascript' src='scripts/AJAX.js'></script>
+	
     <title>Terminal</title>
 </head>
 
@@ -17,38 +21,77 @@
 	</div>
 	
 	<span id="terminal">
-		
 		<header id="terminalDrager">
 			<span class="centroid">Terminal</span>
 			<span id="closeTerminal" onclick="closeTerminal()"><span class="centroid">X</span></span>
 		</header>
-		
 		<nav id='nav' >
 			<ul>
 				<li><a href='#'>HOME</a></li>
-				<li><a href='#'>Home</a></li>
 				<li><a href='#' onclick="document.getElementById('commandHistory').innerHTML = '';">Clear</a></li>
+				
+				<li><a href='#' style="float:right;!important">-</a></li>
 			</ul>
 		</nav>
+		<div class="terminalBody" onclick="document.getElementById('command').focus();return false;">
+			<pre id="ascii-art" class="centroid-fixed" style="display:block;line-height:5px; font-size:5px; font-weight:900;white-space:pre;font-family: monospace;color: lightblue; background: black;"></pre>
 		
-		<footer onclick="document.getElementById('command').focus();return false;">
+			<div class="centroid" style="position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-50;">
+			</div>
 		
-		<pre id="ascii-art" class="centroid-fixed" style="display:block;line-height:5px; font-size:5px; font-weight:900;white-space:pre;font-family: monospace;color: lightblue; background: black;"></pre>
-		
-		<div class="centroid" style="position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-50;">
-		</div>
-		
-			<pre id="commandHistory" style="margin:0;"></pre>
-			<div id="commandPtr" style="z-index:5;display:inline-block;height:30px;width:30px;">
-				<span class="centroid-rel">&nbsp;><span class="blink"style="color:lightgreen;">_</span>&nbsp;</span>
+			<div id="commandHistory" style="margin:0;">
+			
+			<input type='checkbox' id='cmd1' checked='checked'/>
+			<label for='cmd1' class='blockLabel' id="lbl"></label>
+			<div class='codeBlock' id='lol1d'>
+			gello
+			</div>
+			
+			
+			</div>
+			
+			<div id="commandPtr" style="z-index:5;display:inline-block;height:30px;width:50px;">
+				<span class="centroid-rel" style="border:1px solid blue;">&nbsp;><span class="blink"style="color:lightgreen;">_</span>&nbsp;</span>
 			</div>
 			<input type='text' type="text" id="command" spellcheck="false" onkeydown='' style="font-family:Courier New;height:30px;margin:0;"/>
-		</footer>
+			
+			
+			
+			
+			<div>
+	
+			<input type='checkbox' id='lol2' checked='checked'/>
+			<label for='lol2'class='blockLabel'></label>
+			<div class='codeBlock' id='lold'>
+			gello
+			</div>
+			
+			</div>
+			
+			
+			
+		</div>
+		
+		
+		
+		
+		
+		
 		
 	</span>
 
 
 	
+	
+	<span>
+	
+	<input type='checkbox' id='lol' checked='checked'/>
+	<label for='lol'class='blockLabel'></label>
+	<div class='codeBlock' id='lold'>
+	gello
+	</div>
+	
+	</span>
 	
 	
 	
@@ -63,6 +106,8 @@
 	function toggleTerminal(){
 		document.getElementById('terminal').style.display = 'block';
 	}
+	
+	
 	
 	onkeydown = function(e){
 		//alert(e.keyCode);
@@ -90,12 +135,15 @@
 				var command = document.getElementById('command').value;
 				
 				if(command.length!=0){
-					document.getElementById('commandHistory').innerHTML += ""+command+"\n";
+					document.getElementById('commandHistory').innerHTML += ""+command+"";
 					document.getElementById('command').value = '';
-				
 				}
 				
-				request("index",function(res){handle_command(res)},true,"cmd="+command+"");
+				if(predefined_cmds[command]!=undefined){
+					predefined_cmds[command]();
+				}else{
+					handle_command(command);
+				}
 				
 				break;
 				
@@ -119,57 +167,28 @@
 		
 		//bash(e);
 	}
-	
+	/*
 	function handle_command(res){
 		document.getElementById('commandHistory').innerHTML += "<span style='color:red;'>"+res+"</span>\n";
 	}
-	
-			function request(url,callback,sync=true,data=null){
-				var xhttp = new XMLHttpRequest();
-				xhttp.overrideMimeType("text/plain");
-				//xhttp.overrideMimeType("text/json");
-				//xhttp.overrideMimeType("application/json");
-				if(sync){
-					//Synchronous
-					xhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200){
-							callback(xhttp.responseText);
-						}
-					};
-					if(data==null){
-						xhttp.open("GET",url,false);
-						xhttp.send(null);
-					}else if(typeof data == 'string'){
-						
-						xhttp.open("POST",url,false);
-						xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-						xhttp.send(data);
-					}
-				}else{
-					//Asynchronous
-					/*
-					xhttp.open("GET", url, true);
-					xhttp.responseType = "text";
-					xhttp.onload = function(oEvent) {
-						console.log(xhttp.response);
-						callback(xhttp.responseText);	  
-					}
-					xhttp.send(null);
-					*/
-				}
-			}
+	*/
+
 	
     </script>
 	
 	
-	<script>
-			dragElement(document.getElementById(("terminal")),"Drager");
-			
-			
-			onload = function(e){
-		request('./assets/kali_linux_ascii_art',function(res){document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
+<script>
+	dragElement(document.getElementById(("terminal")),"Drager");		
+	onload = function(e){
+		//request('./assets/kali_linux_ascii_art',function(res){document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
 	}
-		</script>
-
+	document.getElementById(("lbl")).onclick = function(){
+		alert();
+	}
+	document.getElementById(("cmd1")).onchange = function(){
+		alert();
+	}
+	
+</script>
 </body>
 </html>

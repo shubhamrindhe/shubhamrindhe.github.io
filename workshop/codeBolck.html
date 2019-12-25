@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>card</title>
+        <style>
+
+.container{
+    position:absolute ;
+    width:200px;
+    height:300px;
+}
+.card{
+    position:relative ;
+    width:100%;
+    height:100%;
+    transform-style:preserve-3d;
+    transition: all 0.3s ease;
+}
+.card:hover{
+    transform:rotateY(180deg);
+}
+.front{
+    position:absolute ;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden ;
+    background-color:red;
+}
+.back{
+    position:absolute ;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden ;
+    background-color:blue;
+    transform:rotateY(180deg);
+}
+.frame{
+    position:absolute ;
+    width:100%;
+    height:100%;
+}
+
+
+
+
+	
+
+
+body {
+		margin:0;
+		padding:0;
+		/*background:#262626;*/
+}
+
+a{
+	position:absolute;
+	left:50%;
+	top:50%;
+	
+	transform:translate(-50%,-50%);
+	
+ 	width:180px ;
+	height:50px;
+	
+	text-align:center ;
+	line-height:50px;
+	color:#000;
+	text-decoration:none;
+	text-transform:uppercase;
+	font-size:20px;
+	font-family:verdana;
+	letter-spacing:4px;
+	background:#fff;
+	
+	padding:4px;
+}
+
+a:before,
+a:after,
+span:before,
+span:after
+{
+	content:'';
+	position:absolute;
+	width:10px;
+	height:10px;
+	background:#000;
+	transition:0.25s;
+	mix-blend-mode: hue;
+}
+
+a:before{
+	top:-2px;
+	left:-2px;
+}
+a:after{
+	top:-2px;
+	right:-3px;
+}
+span:before{
+	bottom:-2px;
+	left :-2px;
+}
+span:after{
+	bottom:-2px;
+	right:-3px;
+}
+
+a:hover:before,
+a:hover:after,
+a:hover span:before,
+a:hover span:after
+{
+	width:calc(180px / 1);
+	height:calc(50px / 1);
+}
+
+
+
+
+
+
+
+
+.codeBlock:hover{
+	background-color: rgba(180,180,180,0.3);
+	border:2px solid rgba(180,180,180,0.9);
+	border-radius:10px;
+	padding:2px;
+	margin:3px;
+	transform:scale(1.01);
+	/*box-shadow:0px -13px 2px 1px rgba(180,180,180,0.7);*/
+	transition-duration:0.1s;
+}
+
+
+
+
+input[type="checkbox"]{
+	transition-duration:0.1s;
+}
+
+input[type="checkbox"]:not(:checked) +label+div{
+	display : none;
+}
+input[type="checkbox"]:checked +label+div{
+	display : block;
+	
+}
+
+/*
+input[type="checkbox"]:not(:checked)+label:after{
+	content:"{...}";
+	display : block; 
+	position:relative;
+	left:100%;
+}
+input[type="checkbox"]:checked+label:after{
+	content:"{...}";
+	display : none;
+}
+*/
+
+/*
+input[type="checkbox"]:not(:checked) + em {
+	display : block;
+}
+input[type="checkbox"]:checked + em {
+	display : none;
+}*/
+
+
+
+input[type="checkbox"]{
+	display : none;
+}
+.blockLabel{
+	display:inline-block;
+	padding:1px 5px;
+	border:1px solid rgba(0,0,0,0.8);
+	color:rgba(0,0,0,1);
+	background:rgba(0,0,0,0.3);
+	border-radius:5px;
+}
+	
+.blockLabel:hover{
+	background:rgba(0,0,0,0.8);
+	color:#fff;	
+}
+input[type="checkbox"]:checked + label:before{
+	display:block;
+	content:"-";
+}
+input[type="checkbox"]:not(:checked) + label:before{
+	display:block;
+	content:"{...}";
+}
+
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+        
+        <!--div class="container">
+            <div class="card">
+                <div class="front"><iframe src="https://shubhamrindhe.github.io/Games/" class="frame"></iframe></div>
+                <div class="back">back</div>
+            </div>
+        </div-->
+		
+		<a href="#" >
+			<span >
+			</span>
+			RECOGNIZE
+		</a>
+		
+		
+		<input type='checkbox' id='lol' checked='checked'/>
+		<label onmousemove='setTooltip(this)' onmouseout='clearTooltip(this)' for='lol'class='blockLabel'></label>
+		<div class='codeBlock' id='lold'>
+		
+			gello
+		
+		</div>	
+        
+    </body>
+</html>
