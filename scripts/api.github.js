@@ -1,12 +1,12 @@
 const USR = "shubhamrindhe";
 var url = {
 	user : "https://api.github.com/users/"+USR+"",
-	repos : "https://api.github.com/users/"+USR+"/repos"
+	repositories : "https://api.github.com/users/"+USR+"/repos"
 }
 
 var handlers = {
 	
-	repos : function(evt,obj,res){
+	repositories : function(evt,obj,res){
 		document.getElementById('container').innerHTML = gen_repos(res);
 	}
 	

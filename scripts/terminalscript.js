@@ -42,7 +42,19 @@ function handle_command(command){
 		});
 		
 		repo_html += '</div>';
-		
 		document.getElementById('commandHistory').innerHTML += repo_html;
+		return repo_html;
 	});
+}
+
+var predefined_composite_cmds = {
+	load : function(arguments){
+		console.log(arguments);
+		request('./assets/ascii-arts/'+arguments[0]+'',function(res){document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
+	}
+}
+
+function handle_composite_command(command){
+	var parameters = command.splice(1);
+	predefined_composite_cmds[command[0]](parameters);
 }

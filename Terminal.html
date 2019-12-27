@@ -10,12 +10,24 @@
 	<script type='text/javascript' src='scripts/api.github.js'></script>
 	<script type='text/javascript' src='scripts/terminalscript.js'></script>
 	<script type='text/javascript' src='scripts/AJAX.js'></script>
+	<script type='text/javascript' src='scripts/regex.js'></script>
 	
     <title>Terminal</title>
 </head>
 
 <body>
     
+	
+	
+	<input type='checkbox' id='cmd8' checked='checked'/>
+		<label for='cmd8' class='blockLabel' id="lbl"></label>
+		<div class='codeBlock' id='lol1d'>
+		gello
+	</div>
+	
+	
+	
+	
 	<div id="terminalIcon" onclick="toggleTerminal()">
 		<span class="centroid" >&nbsp;><span class="blink">_</span>&nbsp;</span>
 	</div>
@@ -27,10 +39,9 @@
 		</header>
 		<nav id='nav' >
 			<ul>
-				<li><a href='#'>HOME</a></li>
 				<li><a href='#' onclick="document.getElementById('commandHistory').innerHTML = '';">Clear</a></li>
-				
 				<li><a href='#' style="float:right;!important">-</a></li>
+				<li id="gethelp"><a href='#'>Get Help?</a></li>
 			</ul>
 		</nav>
 		<div class="terminalBody" onclick="document.getElementById('command').focus();return false;">
@@ -38,38 +49,13 @@
 		
 			<div class="centroid" style="position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-50;">
 			</div>
-		
-			<div id="commandHistory" style="margin:0;">
 			
-			<input type='checkbox' id='cmd1' checked='checked'/>
-			<label for='cmd1' class='blockLabel' id="lbl"></label>
-			<div class='codeBlock' id='lol1d'>
-			gello
-			</div>
-			
-			
-			</div>
+			<pre id="commandHistory" style="margin:0;"></pre>
 			
 			<div id="commandPtr" style="z-index:5;display:inline-block;height:30px;width:50px;">
-				<span class="centroid-rel" style="border:1px solid blue;">&nbsp;><span class="blink"style="color:lightgreen;">_</span>&nbsp;</span>
+				<span class="centroid-rel" style="">&nbsp;><span class="blink"style="color:lightgreen;">_</span>&nbsp;</span>
 			</div>
-			<input type='text' type="text" id="command" spellcheck="false" onkeydown='' style="font-family:Courier New;height:30px;margin:0;"/>
-			
-			
-			
-			
-			<div>
-	
-			<input type='checkbox' id='lol2' checked='checked'/>
-			<label for='lol2'class='blockLabel'></label>
-			<div class='codeBlock' id='lold'>
-			gello
-			</div>
-			
-			</div>
-			
-			
-			
+			<input type='text' type="text" id="command" spellcheck="false" onkeydown='' style="font-family:Courier New;height:30px;margin:0;"/>	
 		</div>
 		
 		
@@ -91,9 +77,13 @@
 	gello
 	</div>
 	
+	
 	</span>
 	
 	
+	
+	
+			
 	
 	
 	
@@ -133,17 +123,27 @@
 		
 			case 13:
 				var command = document.getElementById('command').value;
+				var output;
+				
 				
 				if(command.length!=0){
 					document.getElementById('commandHistory').innerHTML += ""+command+"";
 					document.getElementById('command').value = '';
 				}
 				
-				if(predefined_cmds[command]!=undefined){
-					predefined_cmds[command]();
+				if(command.indexOf(" ")!=-1){
+					const command_tokens = command.split(" ");
+					output = handle_composite_command(command_tokens);
 				}else{
-					handle_command(command);
+					if(predefined_cmds[command]!=undefined){
+						output = predefined_cmds[command]();
+					}else{
+						output = handle_command(command);
+					}
 				}
+				console.log(output);
+				
+				document.getElementById('commandHistory').innerHTML += (output!=null || output!=undefined) ? output+"\n" : '\n' ;
 				
 				break;
 				
@@ -180,14 +180,17 @@
 <script>
 	dragElement(document.getElementById(("terminal")),"Drager");		
 	onload = function(e){
-		//request('./assets/kali_linux_ascii_art',function(res){document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
+		//request('./assets/ascii-arts/kali_linux',function(res){console.log(res);document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
 	}
 	document.getElementById(("lbl")).onclick = function(){
+		//alert();
+	}
+	/*
+	document.getElementById(("cmd4")).onchange = function(){
 		alert();
 	}
-	document.getElementById(("cmd1")).onchange = function(){
-		alert();
-	}
+	*/
+	
 	
 </script>
 </body>

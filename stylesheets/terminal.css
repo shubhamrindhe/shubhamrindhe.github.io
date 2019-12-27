@@ -55,8 +55,9 @@
 		min-width:250px;
 		font-size:small;
 		
-		/*background:rgba(0,0,0,1);*/
+		border-radius : 8px; 
 		
+		background:rgba(0,0,0,1);
 		/*border:2px solid lightgrey;*/
 		
 		resize: both;
@@ -68,6 +69,8 @@
 		left:0;
 		width:100%;
 		background:lightgrey;
+		
+		
 	}
 	#terminal .terminalBody{
 		position:absolute;
@@ -79,7 +82,7 @@
 	}
 	#terminal header #closeTerminal{
 		position:absolute;
-		right:0;
+		/*right:0;*/
 		
 		background:lightgrey;
 		
@@ -93,7 +96,10 @@
 		vertical-align:middle;*/
 		width:40px;
 		height:100%;
-		float:right;
+		float:left;
+		
+		
+		border-radius:50%;
 		
 		
 	}
@@ -107,6 +113,10 @@
 		color:#fff;
 	}
 	
+	
+	#terminal #terminalBody{
+		background:rgba(0,0,0,1);
+	}
 	
 	#terminal #ascii-art{
 		font-family:Courier New;
@@ -137,10 +147,10 @@
 		color:#fff;
 		font-weight:bold;
 		font-size:small;
-		border:1px solid lightgrey;
+		/*border:1px solid lightgrey;*/
 	}
 	#command{
-		border:1px solid red;
+		border:none;
 		resize: none;
 		background:none;
 		outline:none;
@@ -150,7 +160,6 @@
 		color:#0f0;
 		overflow-y:hidden;
 	}
-	
 	
 	
 	.blink{
@@ -175,12 +184,13 @@
 		left:0;
 		top:40px;
 		width:100%;
-		/*background:rgba(0,0,0,1);*/
+		/*background:rgba(255,0,0,1);*/
 	}
 	nav ul{
 		margin:0;
 		padding:0;
 		display:flex;
+		width:100%;
 	}
 
 	nav ul li{
@@ -197,6 +207,12 @@
 	nav ul li a:hover{
 		color:#000;
 		background:#fff;/*#2196f3;*/
+	}
+	
+	#gethelp{
+		float:right;
+		position:absolute;
+		right:0;
 	}
 
 	
@@ -253,11 +269,18 @@ input[type="checkbox"]:checked + em {
 
 
 input[type="checkbox"]{
-	display : none;
+	/*display : none;*/
 }
 
 input[type="checkbox"]{
 	transition-duration:0.1s;
+}
+
+input[type="checkbox"]:not(:checked){
+	
+}
+input[type="checkbox"](:checked){
+	
 }
 
 input[type="checkbox"]:not(:checked) + label + .codeBlock{
@@ -274,6 +297,8 @@ input[type="checkbox"]:checked + label + .codeBlock{
 	color:rgba(0,0,0,1);
 	background:rgba(0,0,0,0.3);
 	border-radius:5px;
+	
+	z-index:100000;
 }
 
 .blockLabel:hover{
@@ -282,11 +307,13 @@ input[type="checkbox"]:checked + label + .codeBlock{
 }
 
 input[type="checkbox"]:checked + label:before{
+	font-family:Courier New;
 	display:block;
 	content:" - ";
 }
 
 input[type="checkbox"]:not(:checked) + label:before{
+	font-family:Courier New;
 	display:block;
 	content:"{...}";
 }
