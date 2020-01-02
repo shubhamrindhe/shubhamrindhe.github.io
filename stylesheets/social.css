@@ -3,10 +3,20 @@ footer{
 	bottom:0;
 	
 	padding:0 10px;
-	background:none;
 	width:100%;
 	box-sizing:border-box;
 	z-index:10;
+	
+	
+	
+	
+	/*background:#f00;*/
+}
+
+.social_ceneter{
+	display:flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #quote{
@@ -25,10 +35,12 @@ ul.social{
 	padding:0;
 	display:flex;
 	float:right;
+	
+	/*background:#f00;*/
 }
 ul.social li{
 	list-style:none;
-	margin:0 5px;
+	margin:0 0px;
 	display:inline-block;
 	background:#none;
 	/*border:2px solid blue;*/
@@ -100,6 +112,9 @@ ul.social li.instagram:hover a{
 }
 ul.social li.github:hover a{
 	background:#24292e;
+}
+ul.social li.hackerrank:hover a{
+	background:#1ba94c;
 }
 ul.social li.twitter:hover a{
 	background:#00aced;
