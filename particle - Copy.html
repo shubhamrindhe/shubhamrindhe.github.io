@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+	body{
+	margin:0;
+	padding:0;
+	font-family:sans-serif;
+	background:none;
+	/*overflow:hidden;*/
+	min-height:100%;
+}
+.centroid{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+	
+    </style>
+	
+	</head>
+    <body>
+    <script>
+    var canvas     = document.createElement('canvas'),
+            ctx        = canvas.getContext('2d'),
+            width      = canvas.width  = window.innerWidth*0.5,
+            height     = canvas.height = window.innerHeight*0.5,
+			
+            PI2        = Math.PI * 2,
+            max_len    = 200,
+            points_num = 30,
+            koef       = 5.0,
+            point      = []; 
+			canvas.className = 'centroid';
+        
+        document.body.appendChild(canvas);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = 'black';//'rgb(64,224,208)'; 
+        function Point() {
+		
+			var rad = Math.random() * Math.PI*2;
+			var r = 100;
+			
+            this.pos = { 
+                x: Math.random() * (width),
+                y: Math.random() * height
+            };
+            
+            this.vel = { 
+                x: (Math.random() - 0.5) * koef,
+                y: (Math.random() - 0.5) * koef 
+            };
+            
+            this.radius = 2;
+        };
+        
+        
+        Point.prototype.update = function() { 
+            this.pos.x += this.vel.x;
+            this.pos.y += this.vel.y;
+        };
+        
+        
+        Point.prototype.collision = function() {
+            if (this.pos.x + this.radius > width) {
+                this.pos.x = width - this.radius;
+                this.vel.x *= -1;
+            } 
+            else if (this.pos.x - this.radius < 0) {
+                this.pos.x = this.radius;
+                this.vel.x *= -1;
+            };
+            
+            if (this.pos.y + this.radius > height) {
+                this.pos.y = height - this.radius;
+                this.vel.y *= -1;
+            } 
+            else if (this.pos.y - this.radius < 0) {
+                this.pos.y = this.radius;
+                this.vel.y *= -1;
+            };
+			
+			
+			
+        };
+        
+
+        Point.prototype.draw = function() {
+            ctx.beginPath();
+            ctx.arc(this.pos.x, this.pos.y, this.radius, 0, PI2, false);
+            ctx.fill();
+        };
+        
+        
+        function updateLines() {
+            var dist = 0, dx = 0, dy = 0;
+            for (var i = 0; i < points_num - 1; ++i) {
+                for (var j = i + 1; j < points_num; ++j) {
+                    dx = point[i].pos.x - point[j].pos.x;
+                    dy = point[i].pos.y - point[j].pos.y;
+                    dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < max_len) { 
+                        ctx.strokeStyle = 'rgba(0, 0, 0,' + ( (dist/max_len)/2 ) + ')';  
+                        ctx.beginPath();
+                        ctx.moveTo(point[i].pos.x, point[i].pos.y);
+                        ctx.lineTo(point[j].pos.x, point[j].pos.y); 
+                        ctx.stroke();
+                    };
+                };
+            };
+        };
+        
+        
+        for (var i = 0; i < points_num; ++i) {
+            point[i] = new Point();
+        };
+
+    
+        requestAnimationFrame(frame);
+        function frame() {
+            requestAnimationFrame(frame);
+            ctx.clearRect(0, 0, width, height); 
+            
+			ctx.save();
+			ctx.translate(canvas.width*0.5,canvas.height*0.5);
+			//ctx.translate(100,100);
+			
+			ctx.beginPath();
+			ctx.strokeStyle = "red";
+			ctx.lineWidth = 3;
+			ctx.arc(0,0,100,0,Math.PI*2,true);
+			
+			ctx.stroke();
+			//ctx.fill();
+			ctx.closePath();
+			
+			ctx.restore();
+			
+            for (var i = 0; i < points_num; ++i) {
+                point[i].update(); 
+                point[i].collision(); 
+            };
+            
+            updateLines();
+            
+            for (var i = 0; i < points_num; ++i) {
+                point[i].draw();
+            };
+        };    
+
+window.onresize = function() {
+  width      = canvas.width  = window.innerWidth;
+  height     = canvas.height = window.innerHeight;
+  ctx.fillStyle = 'rgb(255,255,255)';
+}
+
+    </script>
+    </body>
+</html>

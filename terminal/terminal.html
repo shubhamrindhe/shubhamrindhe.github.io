@@ -1,0 +1,44 @@
+<span id="terminal">
+		<header id="terminalDrager">
+			<span class="centroid">Terminal</span>
+			
+			<div id="buttons" style="">
+			
+				<button class="close" style="margin:5px 5px;" onclick="closeTerminal()"></button>
+				<button class="minimize" style="margin:5px 5px;"></button>
+				<button class="maximize" style="margin:5px 5px;"></button>
+
+			</div>
+		</header>
+		<nav id='nav' >
+			<ul>
+				<li><a href='#' onclick="document.getElementById('commandHistory').innerHTML = '';">Clear</a></li>
+				<li><a href='#' style="float:right;!important">-</a></li>
+				<li id="gethelp"><a href='#'>Get Help?</a></li>
+			</ul>
+		</nav>
+		<div class="terminalBody" >
+			<pre id="ascii-art" class="centroid-fixed" style="display:block;line-height:5px; font-size:5px; font-weight:900;white-space:pre;font-family: monospace;color: lightblue; background: black;"></pre>
+		
+			<div class="centroid" style="position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-50;" onclick="document.getElementById('command').focus();return false;">
+			</div>
+			
+			<pre id="commandHistory" style="margin:0;"></pre>
+			
+			<div id="commandLine">
+				
+				<div style="width:100%;">
+				
+					<div id="commandPtr" style="z-index:5;display:inline-block;height:30px;width:50px;">
+						<span style="font-size:20px;display: flex;justify-content: center;align-items: center;"><!--&nbsp;--> &rarr; <!--span class="blink"style="color:lightgreen;">_</span--></span>
+					</div>
+			
+					<input type='text' type="text" id="command" spellcheck="false" onkeydown='' style="font-family:Courier New;height:30px;margin:0;"/>
+				
+				</div>
+		
+			</div>
+			
+			
+		</div>
+	</span>

@@ -7,12 +7,14 @@
 	<link rel="stylesheet" href="stylesheets/terminal.css" type="text/css" />
 	
 	<script type='text/javascript' src='../scripts/drager.js'></script>
+	
 	<script type='text/javascript' src='../scripts/api.github.js'></script>
 	<script type='text/javascript' src='../scripts/AJAX.js'></script>
 	
 	<script type='text/javascript' src='scripts/regex.js'></script>
 	<script type='text/javascript' src='scripts/terminalscript.js'></script>
 	<script type='text/javascript' src='scripts/e.js'></script>
+	<script type='text/javascript' src='scripts/esTERegg.js'></script>
     <title>Terminal</title>
 </head>
 
@@ -33,7 +35,7 @@
 		<span class="centroid" >&nbsp;><span class="blink">_</span>&nbsp;</span>
 	</div>
 	
-	<span id="terminal">
+	<!--span id="terminal">
 		<header id="terminalDrager">
 			<span class="centroid">Terminal</span>
 			
@@ -52,10 +54,10 @@
 				<li id="gethelp"><a href='#'>Get Help?</a></li>
 			</ul>
 		</nav>
-		<div class="terminalBody" onclick="document.getElementById('command').focus();return false;">
+		<div class="terminalBody" >
 			<pre id="ascii-art" class="centroid-fixed" style="display:block;line-height:5px; font-size:5px; font-weight:900;white-space:pre;font-family: monospace;color: lightblue; background: black;"></pre>
 		
-			<div class="centroid" style="position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-50;">
+			<div class="centroid" style="position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-50;" onclick="document.getElementById('command').focus();return false;">
 			</div>
 			
 			<pre id="commandHistory" style="margin:0;"></pre>
@@ -65,7 +67,7 @@
 				<div style="width:100%;">
 				
 					<div id="commandPtr" style="z-index:5;display:inline-block;height:30px;width:50px;">
-						<span style="font-size:20px;display: flex;justify-content: center;align-items: center;"><!--&nbsp;--> &rarr; <!--span class="blink"style="color:lightgreen;">_</span--></span>
+						<span style="font-size:20px;display: flex;justify-content: center;align-items: center;"><!--&nbsp;> &rarr; <!--span class="blink"style="color:lightgreen;">_</span></span>
 					</div>
 			
 					<input type='text' type="text" id="command" spellcheck="false" onkeydown='' style="font-family:Courier New;height:30px;margin:0;"/>
@@ -76,7 +78,7 @@
 			
 			
 		</div>
-	</span>
+	</span-->
 
 
 	
@@ -100,7 +102,7 @@
 	
 	
 	
-    <script>
+    <!--script>
 	function closeTerminal(){
 		document.getElementById('terminal').style.display = 'none';
 		document.getElementById('commandHistory').innerHTML = "";
@@ -185,23 +187,11 @@
 	*/
 
 	
-    </script>
+    </script-->
 	
 	
 <script>
-	dragElement(document.getElementById(("terminal")),"Drager");		
-	onload = function(e){
-		//request('./assets/ascii-arts/kali_linux',function(res){console.log(res);document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
-	}
-	document.getElementById(("lbl")).onclick = function(){
-		//alert();
-	}
-	/*
-	document.getElementById(("cmd4")).onchange = function(){
-		alert();
-	}
-	*/
-	
+			
 	
 </script>
 </body>

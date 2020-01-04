@@ -11,8 +11,9 @@ function handle_command(command){
 		obj = JSON.parse(res);
 		console.log(obj);
 		
+		
 		repo_html = '\
-<input type="checkbox" id="l'+(command+cmd_count)+'" checked="checked"/>\
+<input type="checkbox" id="'+(command+cmd_count)+'" checked="checked"/>\
 <label for="'+(command+cmd_count)+'" class="blockLabel"></label>\
 <div class="codeBlock" id="lold">\
 ';
