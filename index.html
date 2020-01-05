@@ -21,7 +21,8 @@
 	<script type="text/javascript" src="scripts/main.js"></script>
 	<script type="text/javascript" src="scripts/AJAX.js"></script>
 	<script type='text/javascript' src='./scripts/listen.js'></script>
-	<script type='text/javascript' src='./scripts/esTERegg.js'></script>
+	
+	<script type='text/javascript' src='./terminal/scripts/esTERegg.js'></script>
 		
 </head>
 <body class="">
@@ -141,21 +142,5 @@
 		</div>
 		
 	</footer>
-	
-<script>
-	
-onload = function(e){
-	request('./assets/ascii-arts/wrench_ascii_art',function(res){document.getElementById('ascii-art').innerHTML = '<span>'+res+'</span>';});
-		
-	document.getElementById('loader').onclick = function(e){
-		if(document.body.className =='darkmode')
-			document.body.className = '';
-		else
-			document.body.className = 'darkmode';
-	}
-	
-	document.getElementById('repositories').setAttribute('onclick','handler(event,this)');
-}
-</script>	
 </body>
 </html>

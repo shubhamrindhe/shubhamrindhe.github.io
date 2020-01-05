@@ -63,7 +63,9 @@
 		resize: both;
 		
 	}
-	
+	#terminal #terminalTitle:before{
+		content:attr(title-text);
+	}
 /*	
 ::select{
 		background: #0080FF;
