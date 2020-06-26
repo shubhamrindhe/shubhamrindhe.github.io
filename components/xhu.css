@@ -1,0 +1,25 @@
+body, *{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.centroid{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+
+.center-flex{
+	display:flex-box;
+	justify-content:center;
+	align-items:center;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.hov:hover a {
+	background:var(--hover-bg);
+	color:var(--hover-color);
+}

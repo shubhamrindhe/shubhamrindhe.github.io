@@ -24,20 +24,9 @@ body.darkmode *{
 	display:none;
 }
 
-.certrify{
-	display:flex-box;
-	justify-content:center;
-	align-items:center;
-	text-align:center;
-	vertical-align:middle;
-}
 
-.centroid{
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translate(-50%,-50%);
-}
+
+
 .centroid-rel{
 	position:relative;
 	/*top:50%;
