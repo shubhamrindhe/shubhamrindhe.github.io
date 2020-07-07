@@ -20,6 +20,6 @@ body, *{
 }
 
 .hov:hover a {
-	background:var(--hover-bg);
-	color:var(--hover-color);
+	background:var(--hov-bg);
+	color:var(--hov-clr);
 }
