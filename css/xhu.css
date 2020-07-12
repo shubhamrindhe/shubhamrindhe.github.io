@@ -23,3 +23,52 @@ body, *{
 	background:var(--hov-bg);
 	color:var(--hov-clr);
 }
+
+
+
+input[type="checkbox"].toggle{display : none;transition-duration:0.1s;}
+input[type="checkbox"].toggle:not(:checked){}
+input[type="checkbox"].toggle(:checked){}
+
+input[type="checkbox"]:checked + .toggle-label:before{
+	font-family:Courier New;
+	display:block;
+	content:var(--c-checked-b," x ");
+	float:left;
+}
+
+input[type="checkbox"].toggle:not(:checked) + .toggle-label + .toggle-block{
+	display : none;
+}
+
+input[type="checkbox"].toggle:checked + .toggle-label + .toggle-block{
+	display : block;
+}
+
+input[type="checkbox"].toggle:not(:checked) + .toggle-label:before{
+	font-family:Courier New;
+	display:block;
+	content:var(--c-not-checked-b," {...} ");
+}
+
+.toggle-label{
+	display:inline-block;
+	padding:1px 5px;
+	border:1px solid rgba(255,255,255,0.8);
+	color:#000;
+	background:rgba(0,0,0,0.3);
+	border-radius:5px;
+	
+	z-index:100000;
+	
+	margin:10px;
+}
+
+.toggle-label:hover{
+	background:rgba(0,0,0,0.8);
+	color:#fff;	
+}
+
+.toggle-label:before{
+	padding:10px;
+}
