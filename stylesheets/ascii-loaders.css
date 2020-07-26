@@ -90,13 +90,7 @@
 }
 
 
-#ajax_indicator.active:after{
-	content:'';
-    display:block;
-    font-weight:900;
-    font-family:Courier New;
-    animation: ascii-stick-loader 200ms infinite;
-}
+
 
 @keyframes ascii-stick-loader{
     0%{

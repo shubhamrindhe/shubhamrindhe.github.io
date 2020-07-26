@@ -164,9 +164,21 @@ header.mainHeader nav ul li a:hover{
 	margin:0 20px;
 	z-index:50;
 }
-#ajax_indicator{
+
+#ajax_indicator {
 	/*height:calc(100vh - 105px) !important;*/
 	font-size:40px;
+	
+	
+}
+/
+#ajax_indicator.active {
+	width:10px;
+    height:10px;
+    border-radius:50%;
+    animation: shadow-pulse 1.5s infinite ;
+	padding:0;
+	margin:0;
 }
 
 	
