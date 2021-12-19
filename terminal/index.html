@@ -1,199 +1,161 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="author" content="shubhamrindhe" id="author"/>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<meta name="author" content="shubhamrindhe" id="author" />
 	<link rel="stylesheet" href="stylesheets/terminal.css" type="text/css" />
-	
+
 	<script type='text/javascript' src='../scripts/drager.js'></script>
-	
+
 	<script type='text/javascript' src='../scripts/api.github.js'></script>
 	<script type='text/javascript' src='../scripts/AJAX.js'></script>
-	<script type='text/javascript' src='../components/xhu.js'></script>
-	
+	<script type='text/javascript' src='../js/xhu.js'></script>
+
 	<script type='text/javascript' src='scripts/regex.js'></script>
 	<script type='text/javascript' src='scripts/terminalscript.js'></script>
 	<script type='text/javascript' src='scripts/e.js'></script>
 	<script type='text/javascript' src='scripts/esTERegg.js'></script>
-    <title>Terminal</title>
+	<title>Terminal</title>
+
 </head>
 
 <body>
-    
-	
-	
-	<input type='checkbox' id='cmd8' checked='checked'/>
-		<label for='cmd8' class='blockLabel' id="lbl"></label>
-		<div class='codeBlock' id='lol1d'>
-		gello
-	</div>
-	
-	
-	
-	
-	<div id="terminalIcon" onclick="toggleTerminal()">
-		<span class="centroid" >&nbsp;><span class="blink">_</span>&nbsp;</span>
-	</div>
-	
-	<!--span id="terminal">
-		<header id="terminalDrager">
-			<span class="centroid">Terminal</span>
-			
-			<div id="buttons" style="">
-			
-				<label for='cmd8' class='blockLabel' id=""><button class="close" style="margin:5px 5px;" onclick="closeTerminal()"></button></label>
-				<button class="minimize" style="margin:5px 5px;"></button>
-				<button class="maximize" style="margin:5px 5px;"></button>
+	<script>
 
-			</div>
-		</header>
-		<nav id='nav' >
-			<ul>
-				<li><a href='#' onclick="document.getElementById('commandHistory').innerHTML = '';">Clear</a></li>
-				<li><a href='#' style="float:right;!important">-</a></li>
-				<li id="gethelp"><a href='#'>Get Help?</a></li>
-			</ul>
-		</nav>
-		<div class="terminalBody" >
-			<pre id="ascii-art" class="centroid-fixed" style="display:block;line-height:5px; font-size:5px; font-weight:900;white-space:pre;font-family: monospace;color: lightblue; background: black;"></pre>
-		
-			<div class="centroid" style="position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-50;" onclick="document.getElementById('command').focus();return false;">
-			</div>
-			
-			<pre id="commandHistory" style="margin:0;"></pre>
-			
-			<div id="commandLine">
-				
-				<div style="width:100%;">
-				
-					<div id="commandPtr" style="z-index:5;display:inline-block;height:30px;width:50px;">
-						<span style="font-size:20px;display: flex;justify-content: center;align-items: center;"><!--&nbsp;> &rarr; <!--span class="blink"style="color:lightgreen;">_</span></span>
-					</div>
-			
-					<input type='text' type="text" id="command" spellcheck="false" onkeydown='' style="font-family:Courier New;height:30px;margin:0;"/>
-				
-				</div>
-		
-			</div>
-			
-			
-		</div>
-	</span-->
-
-
-	
-	
-	<span>
-	
-	<input type='checkbox' id='lol' checked='checked'/>
-	<label for='lol'class='blockLabel'></label>
-	<div class='codeBlock' id='lold'>
-	gello
-	</div>
-	
-	
-	</span>
-	
-	
-	
-	
-			
-	
-	
-	
-	
-    <!--script>
-	function closeTerminal(){
-		document.getElementById('terminal').style.display = 'none';
-		document.getElementById('commandHistory').innerHTML = "";
-	}
-	function toggleTerminal(){
-		document.getElementById('terminal').style.display = 'block';
-	}
-	
-	
-	
-	onkeydown = function(e){
-		//alert(e.keyCode);
-		switch(e.keyCode){
-			case 13:
-				
-				break;
-				
-        }
-	}
-	onkeyup = function(){
-	
-	}
-	
-	function bash(e){
-		switch(e.keyCode){
-				
-        }
-	}
-	
-	document.getElementById('command').onkeydown = function(e){
-		switch(e.keyCode){
-		
-			case 13:
-				var command = document.getElementById('command').value;
-				var output;
-				
-				
-				
-				if(command.length!=0){
-					document.getElementById('commandHistory').innerHTML += ""+command+"\n";
-					document.getElementById('command').value = '';
-				}
-				if(command.indexOf(" ")!=-1){
-					const command_tokens = command.split(" ");
-					
-					if(predefined_composite_cmds[command_tokens[0]]!=undefined){
-						output = handle_composite_command(command_tokens);
-					}else if(true){
-						console.log(command);
-						output = eval(command);
-					}
-					
-					
-				}else{
-					if(predefined_cmds[command]!=undefined){
-						output = predefined_cmds[command]();
-					}else{
-						output = handle_command(command);
-					}
-				}
-				console.log(output);
-				document.getElementById('commandHistory').innerHTML += (output!=null || output!=undefined) ? output+"\n" : '' ;
-				break;
-				
-			case 38:
-				var history = document.getElementById('commandHistory').innerHTML.split('\n');
-				var index = history.indexOf(document.getElementById('command').value);
-				--index;
-				if(index < 0){
-					index = history.length-2;
-				}
-				document.getElementById('command').value = history[index];
-				break;
+		function initResize(e) {
+			window.addEventListener('mousemove', Resize, false);
+			window.addEventListener('mouseup', stopResize, false);
 		}
-		//console.log(e.keyCode);
-		//bash(e);
-	}
-	/*
-	function handle_command(res){
-		document.getElementById('commandHistory').innerHTML += "<span style='color:red;'>"+res+"</span>\n";
-	}
-	*/
+		function Resize(e) {
+			document.getElementById('terminal').style.width = (e.clientX - element.offsetLeft) + 'px';
+			document.getElementById('terminal').style.height = (e.clientY - element.offsetTop) + 'px';
+		}
+		function stopResize(e) {
+			window.removeEventListener('mousemove', Resize, false);
+			window.removeEventListener('mouseup', stopResize, false);
+		}
 
-	
-    </script-->
-	
-	
-<script>
-	bringMeTerminal('./');
-	
-</script>
+		onload = () => {
+			bringMeTerminal('./');
+			setTimeout(() => {
+				let ctx = document.getElementById('shell-canvas').getContext('2d');
+				ctx.fillStyle = 'red'
+				// ctx.fillRect(0,0,100,100);
+				let canvas = document.getElementById('shell-canvas');
+
+				let rect = document.getElementById('terminal').getBoundingClientRect()
+				canvas.width = rect.width
+				canvas.height = rect.height
+				let a = new MatrixRain(canvas);
+				a.start();
+
+
+				let rs = document.getElementById('rs');
+				// rs.addEventListener('mousedown', initResize, false);
+				// rs.onmousedown = (e) => {
+				// 	alert(e.clientX)
+				// }
+
+				resizer(document.getElementById('terminal'), rs)
+
+			}, 100);
+		}
+
+		function resizer(element, resizer) {
+			var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+			let listener = null
+			if (resizer) {
+				listener = resizer;
+			} else {
+				listener = element;
+			}
+
+			listener.onmousedown = down;
+			listener.onmouseleave = up;
+			listener.onmouseout = up;
+			listener.onmouseup = up;
+
+			function down(e) {
+				pos3 = e.clientX;
+				pos4 = e.clientY;
+				listener.onmousemove = move;
+			}
+
+			function move(e) {
+				element.style.width = (e.pageX - element.offsetLeft) + 'px';
+				element.style.height = (e.pageY - element.offsetTop) + 'px';
+				// element.style.width = (element.offsetLeft - e.clientY) + 'px';
+				// element.style.height = (element.offsetTop - e.clientY) + 'px';
+			}
+
+			function up() {
+				listener.onmouseup = null;
+				listener.onmousemove = null;
+			}
+		}
+
+		class MatrixRain {
+
+			constructor(canvas) {
+				this.canvas = canvas;
+				this.ctx = canvas.getContext('2d');
+				this.loopId = null;
+				this.drops = [];
+				for (var i = 0; i < 100; ++i) {
+					this.drops.push(Math.random() * -200);
+				}
+
+				this.timestapm = null;
+			}
+
+			start() {
+				// this.loop();
+				setInterval(() => { this.loop() }, 50);
+			}
+
+			loop() {
+				// requestAnimationFrame(() => { this.loop() })
+				// console.log(0)
+				if (this.timestapm == null || new Date() - this.timestapm > 0) {
+					this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+					this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+					this.renderDrops();
+					this.update();
+
+					this.timestapm = new Date();
+				}
+
+				// this.ctx.fillStyle = 'red';
+				// this.ctx.fillRect(100, 100, 100, 100);
+
+				// this.ctx.strokeStyle = 'green';
+				// this.ctx.strokeText('A', 100, 100);
+			}
+
+			renderDrops() {
+				for (let i = 0; i < this.drops.length; ++i) {
+					let drop = this.drops[i];
+					// console.log(i)
+					this.ctx.strokeStyle = 'violet';
+					this.ctx.strokeText('अ', i * 10, drop);
+					// this.ctx.fillStyle = 'red';
+					// this.ctx.fillRect( i * 10, drop, 10, 10);
+				}
+				// console.clear()
+			}
+
+			update() {
+				for (let i = 0; i < this.drops.length; ++i) {
+					this.drops[i] += 15;
+					if (this.drops[i] > this.canvas.height) {
+						this.drops[i] = Math.random() * -200;
+					}
+				}
+			}
+		}
+	</script>
 </body>
+
 </html>

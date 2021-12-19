@@ -1,4 +1,4 @@
-function dragElement(elmnt,Drager) {
+function dragElement(elmnt , Drager) {
 	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 	if (document.getElementById(elmnt.id+Drager)) {
 		document.getElementById(elmnt.id+Drager).onmousedown = dragMouseDown;
