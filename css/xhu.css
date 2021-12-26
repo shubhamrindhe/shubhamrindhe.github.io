@@ -58,15 +58,15 @@ input[type="checkbox"].toggle:not(:checked) + .toggle-label:before{
 	color:#000;
 	background:rgba(0,0,0,0.3);
 	border-radius:5px;
-	
+
 	z-index:100000;
-	
+
 	margin:10px;
 }
 
 .toggle-label:hover{
 	background:rgba(0,0,0,0.8);
-	color:#fff;	
+	color:#fff;
 }
 
 .toggle-label:before{

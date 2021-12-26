@@ -4,19 +4,19 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-	<meta name="author" content="shubhamrindhe" id="author"/>
-	<meta property="og:title" content="Shubham Rindhe | Portfolio"/>
-	<meta property="og:type" content="portfolio"/>
-	<meta property="og:url" content="https://shubhamrindhe.github.io/"/>
-	<meta property="og:image" content="https://avatars.githubusercontent.com/u/35947447"/>
-	<meta property="og:description" content="root@shubhamrindhe"/>
+	<meta name="author" content="shubhamrindhe" id="author" />
+	<meta property="og:title" content="Shubham Rindhe | Portfolio" />
+	<meta property="og:type" content="portfolio" />
+	<meta property="og:url" content="https://shubhamrindhe.github.io/" />
+	<meta property="og:image" content="https://avatars.githubusercontent.com/u/35947447" />
+	<meta property="og:description" content="root@shubhamrindhe" />
 	<title>root@shubhamrindhe</title>
-	<link rel="stylesheet" href="stylesheets/fonts.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="stylesheets/fonts.css" type="text/css" /> -->
 	<link rel="stylesheet" href="css/xhu.css" type="text/css" />
 	<link rel="stylesheet" href="stylesheets/social.css" type="text/css" />
-	<link rel="stylesheet" href="stylesheets/repos.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="stylesheets/repos.css" type="text/css" /> -->
 	<link rel="stylesheet" href="stylesheets/loader.css" type="text/css" />
-	<link rel="stylesheet" href="stylesheets/ascii-loaders.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="stylesheets/ascii-loaders.css" type="text/css" /> -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 	<link rel="stylesheet" href="stylesheets/UI.css" type="text/css" />
 
@@ -33,30 +33,26 @@
 
 </head>
 
-<body class="">
+<body>
 
 	<code id="ascii-art" class="centroid-fixed"></code>
 
 	<div style="background:rgba(0,0,0,0);width:100%;height:100%;z-index:-99;" class="centroid-fixed">
-
 		<div id="ajax_indicator" class="centroid"></div>
-
 	</div>
 
 	<header class="mainHeader">
 		<div>
-			<div class="logo glitch" id='logo'></div>
-			<span class="blink" style="color:green;">_</span>
+			<div class="logo" id='logo'></div>
 		</div>
 		<label class='menu-toggle' id='menu-toggle' for='toggle-nav' style=""><span class="certrify"><i class="fas fa-bars"></i></span></label>
 		<input type='checkbox' style='display:none' id='toggle-nav' />
 		<nav id='nav'>
 			<ul>
-				<li><a href="#">Home</a></li>
 				<li id="nav-link-portfolio"><a href="./portfolio">Portfolio</a></li>
-				<li id="nav-link-resume"><a href="./resume/">Resume</a></li>
-				<li id="repositories"><a href="#">Repositories</a></li>
+				<li id="nav-link-resume"><a>Exhibition</a></li>
 				<li id="loader"><a href="#" class="loader"></a></li>
+				<li id="mystery"><a href="#">?</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -65,7 +61,7 @@
 	</section>
 
 	<footer>
-		<div class="social_ceneter" style="">
+		<div class="social_ceneter">
 			<ul class="social">
 				<li class="instagram hov" style="--hov-bg:#e4405f;--hov-clr:#fff">
 					<a href="https://www.instagram.com/shubhamrindhe/">
@@ -118,6 +114,8 @@
 			</ul>
 		</div>
 	</footer>
+
+	<script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>

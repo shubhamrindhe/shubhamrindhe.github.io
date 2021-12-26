@@ -41,7 +41,11 @@ function parseCmd(e) {
 
 
 			if (command.length != 0) {
-				document.getElementById('commandHistory').innerHTML += "" + command + "\n";
+
+				let detail =
+				"<details><summary>"+command+"</summary><div>LOL</div></details>";
+
+				document.getElementById('commandHistory').innerHTML += detail;
 				document.getElementById('command').value = '';
 			}
 			if (command.indexOf(" ") != -1) {

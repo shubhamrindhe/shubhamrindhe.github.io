@@ -1,28 +1,66 @@
-function dragElement(elmnt , Drager) {
-	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-	if (document.getElementById(elmnt.id+Drager)) {
-		document.getElementById(elmnt.id+Drager).onmousedown = dragMouseDown;
-	}else{
-		elmnt.onmousedown = dragMouseDown;
+
+export function makeElementDragable(element, dragTrigger) {
+	let eventTarget = (dragTrigger || element)
+	if (!eventTarget instanceof HTMLElement) {
+		return
 	}
-	function dragMouseDown(e) {
+
+	var prevX = 0, prevY = 0;
+
+	function drag(e) {
 		e = e || window.event;
-		pos3 = e.clientX;
-		pos4 = e.clientY;
-		document.onmouseup = closeDragElement;
-		document.onmousemove = elementDrag;
+
+		let diffX = prevX - e.clientX;
+		let diffY = prevY - e.clientY;
+		element.style.top = (element.offsetTop - diffY) + "px";
+		element.style.left = (element.offsetLeft - diffX) + "px";
+
+		prevX = e.clientX;
+		prevY = e.clientY;
 	}
-	function elementDrag(e) {
+
+	function endDrag() {
+		document.removeEventListener('mousemove', drag);
+		document.removeEventListener('mouseup', endDrag);
+	}
+
+	function startDrag(e) {
 		e = e || window.event;
-		pos1 = pos3 - e.clientX;
-		pos2 = pos4 - e.clientY;
-		pos3 = e.clientX;
-		pos4 = e.clientY;
-		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+		prevX = e.clientX;
+		prevY = e.clientY;
+
+		document.addEventListener('mousemove', drag);
+		document.addEventListener('mouseup', endDrag);
 	}
-	function closeDragElement() {
-		document.onmouseup = null;
-		document.onmousemove = null;
+
+	eventTarget.onmousedown = startDrag;
+
+	//
+	function dragTouch(e) {
+		e = e || window.event;
+
+		let diffX = prevX - e.touches[0].clientX;
+		let diffY = prevY - e.touches[0].clientY;
+		element.style.top = (element.offsetTop - diffY) + "px";
+		element.style.left = (element.offsetLeft - diffX) + "px";
+
+		prevX = e.touches[0].clientX;
+		prevY = e.touches[0].clientY;
 	}
+
+	function endDragTouch() {
+		document.removeEventListener('touchmove', dragTouch);
+		document.removeEventListener('touchend', endDragTouch);
+	}
+
+	function startDragTouch(e) {
+		e = e || window.event;
+		prevX = e.touches[0].clientX;
+		prevY = e.touches[0].clientY;
+
+		document.addEventListener('touchmove', dragTouch);
+		document.addEventListener('touchend', endDragTouch);
+	}
+
+	eventTarget.ontouchstart = startDragTouch;
 }
