@@ -10,6 +10,26 @@ let reveal = (_) => {
 	hs.html("div.class1.class2.class3#id");
 };
 
+function toggleRootTheme(target) {
+	if (target.checked)
+		document.body.className = '';
+	else
+		document.body.className = 'darkmode';
+}
+
+function setThemeOnBasisOfCurrentTime() {
+	const themeSwitch = document.querySelector('#RootThemeSwitch');
+	const initialState = themeSwitch.checked;
+	const hours = new Date().getHours();
+	const isDay = (hours > 7 && hours < 19);
+
+	if (initialState != isDay) {
+		themeSwitch.checked = isDay;
+	}
+
+	toggleRootTheme(themeSwitch);
+}
+
 window.addEventListener('load', () => {
 	document.getElementById('mystery').onclick = (e) => {
 		reveal();
@@ -17,25 +37,13 @@ window.addEventListener('load', () => {
 		e.target.parentElement.removeChild(e.target);
 	}
 
-	document.getElementById('themeToggle').onchange = (e) => {
-		if(e.target.checked)
-			document.body.className = '';
-		else
-			document.body.className = 'darkmode';
-	}
-
-
-
 	// Drager.makeElementDragable(document.getElementById('mystery'));
 
 	//test
 	// reveal();
 
+	// document.getElementById('themeToggle').onchange = (e) => { toggleRootTheme(e.target); }
+
+	document.getElementById('RootThemeSwitch').addEventListener('change', (e) => { toggleRootTheme(e.target); })
 	setThemeOnBasisOfCurrentTime();
 });
-
-function setThemeOnBasisOfCurrentTime() {
-	const toggle = document.querySelector('#RootThemeToggle');
-	const hours = new Date().getHours();
-	toggle.checked = hours > 7 && hours < 20;
-}

@@ -187,6 +187,57 @@ header.mainHeader nav ul li:not(:last-child) a:hover {
 	display: none;
 }
 
+/* DARKMODE */
+
+input[type="checkbox"].RootThemeSwitch {
+	--size: 20px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	width: var(--size);
+	height: var(--size);
+	box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.3) 0;
+	border-radius: 999px;
+	color: #e6e6ff;
+	transition: all 500ms;
+
+	/* padding: 0;
+	margin: 0; */
+
+	overflow: visible;
+}
+
+input[type="checkbox"].RootThemeSwitch:checked {
+	--ray-size: calc(var(--size) * -0.38);
+	--offset-orthogonal: calc(var(--size) * 0.65 * 1.2);
+	--offset-diagonal: calc(var(--size) * 0.45 * 1.2);
+	transform: scale(0.75);
+	color: #ff4c00;
+	/* orange; */
+	/*#ffaa00;*/
+	box-shadow: inset 0 0 0 var(--size),
+		calc(var(--offset-orthogonal) * -1) 0 0 var(--ray-size),
+		var(--offset-orthogonal) 0 0 var(--ray-size),
+		0 calc(var(--offset-orthogonal) * -1) 0 var(--ray-size),
+		0 var(--offset-orthogonal) 0 var(--ray-size),
+		calc(var(--offset-diagonal) * -1) calc(var(--offset-diagonal) * -1) 0 var(--ray-size),
+		var(--offset-diagonal) var(--offset-diagonal) 0 var(--ray-size),
+		calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0 var(--ray-size),
+		var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0 var(--ray-size);
+}
+
+.cxy {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/**/
+
 
 #container {
 	min-height: calc(100vh - 105px) !important;
