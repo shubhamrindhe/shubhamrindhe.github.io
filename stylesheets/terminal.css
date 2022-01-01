@@ -374,8 +374,8 @@ input[type="checkbox"]:checked + em {
 
 
 
-input[type="checkbox"]{
-	/*display : none;*/
+/* input[type="checkbox"]{
+	display : none;
 }
 
 input[type="checkbox"]{
@@ -394,9 +394,9 @@ input[type="checkbox"]:not(:checked) + label + .codeBlock{
 }
 input[type="checkbox"]:checked + label + .codeBlock{
 	display : block;
-}
+} */
 
-.blockLabel{
+/* .blockLabel{
 	display:inline-block;
 	padding:1px 5px;
 	border:1px solid rgba(0,0,0,0.8);
@@ -422,7 +422,7 @@ input[type="checkbox"]:not(:checked) + label:before{
 	font-family:Courier New;
 	display:block;
 	content:"{...}";
-}
+} */
 
 
 

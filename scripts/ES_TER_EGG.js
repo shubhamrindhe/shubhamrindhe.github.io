@@ -2,8 +2,7 @@ import * as Drager from './drager.js';
 
 export default class ESTEREGG {
 
-	constructor() {
-	}
+	constructor() {}
 
 	fetch() {
 		fetch('./../terminal/terminal.html').then((data) => {
@@ -25,7 +24,7 @@ export default class ESTEREGG {
 
 		let div = document.createElement('div');
 
-		div.style.background = 'red';
+		div.style.background = '#7756ff';
 		// div.style.padding = '20px';
 		div.style.height = '40px';
 		div.style.width = '40px';

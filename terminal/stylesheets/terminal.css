@@ -354,7 +354,7 @@ input[type="checkbox"]:checked + em {
 display : none;
 }*/
 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
 	display: none;
 }
 
@@ -400,4 +400,4 @@ input[type="checkbox"]:not(:checked)+label:before {
 	font-family: Courier New;
 	display: block;
 	content:"{...}";
-}
+} */
