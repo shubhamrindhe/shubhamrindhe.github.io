@@ -2,7 +2,7 @@
 body {
 	font-family: "Short Stack";
 	background: none;
-	transition: 0.3s;
+	transition: 0s;
 }
 
 body.darkmode {
