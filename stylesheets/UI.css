@@ -1,11 +1,7 @@
 
 body {
-	margin: 0;
-	padding: 0;
-	/* font-family: sans-serif; */
 	font-family: "Short Stack";
 	background: none;
-	/* min-height: 100%; */
 	transition: 0.3s;
 }
 
@@ -25,23 +21,12 @@ body.darkmode {
 	display: none;
 }
 
-.centroid-rel {
-	position: relative;
-	/*top:50%;
-	left:50%;
-	*/
-	transform: translate(0%, 0%);
-}
-
-.centroid-fixed {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
 .blink {
 	animation: blink 1s infinite;
+}
+
+a {
+	cursor: pointer;
 }
 
 @keyframes blink {
@@ -106,12 +91,13 @@ header.mainHeader .logo {
 }
 
 header.mainHeader #logo::before {
-	content: "0b11111001110.0b110.0b1011";
+	/* content: "0b11111001110.0b110.0b1011"; */
+	content: '';
 	display: inline-block;
 	font-weight: 900;
 	font-family: Courier New;
 	/* font-family: "Short Stack"; */
-	animation: ester-egg-1 1000ms 1000ms forwards;
+	animation: ester-egg-2 1000ms 1000ms forwards;
 }
 
 header.mainHeader #logo::after {
@@ -164,6 +150,11 @@ header.mainHeader nav ul li a {
 	display: block;
 }
 
+header.mainHeader nav ul li:last-child a {
+	padding: 0;
+	min-width: 50px;
+}
+
 /*
 body.darkmode header nav ul li a{
 	color:#fff;
@@ -189,6 +180,12 @@ header.mainHeader nav ul li:not(:last-child) a:hover {
 
 /* DARKMODE */
 
+/* label[for="RootThemeSwitch"]:active {
+	background: currentColor;
+	opacity: 0.1;
+	z-index: -1;
+} */
+
 input[type="checkbox"].RootThemeSwitch {
 	--size: 20px;
 	-webkit-appearance: none;
@@ -202,11 +199,6 @@ input[type="checkbox"].RootThemeSwitch {
 	border-radius: 999px;
 	color: #e6e6ff;
 	transition: all 500ms;
-
-	/* padding: 0;
-	margin: 0; */
-
-	overflow: visible;
 }
 
 input[type="checkbox"].RootThemeSwitch:checked {
@@ -595,5 +587,65 @@ input[type="checkbox"].RootThemeSwitch:checked {
 
 	100% {
 		content: "shubhamrindhe.github.io";
+	}
+}
+
+@keyframes ester-egg-2 {
+	5% {
+		content: "r";
+	}
+	10% {
+		content: "ro";
+	}
+	15% {
+		content: "roo";
+	}
+	20% {
+		content: "root";
+	}
+	25% {
+		content: "root@";
+	}
+	30% {
+		content: "root@s";
+	}
+	35% {
+		content: "root@sh";
+	}
+	40% {
+		content: "root@shu";
+	}
+	45% {
+		content: "root@shub";
+	}
+	50% {
+		content: "root@shubh";
+	}
+	55% {
+		content: "root@shubha";
+	}
+	60% {
+		content: "root@shubham";
+	}
+	65% {
+		content: "root@shubhamr";
+	}
+	70% {
+		content: "root@shubhamri";
+	}
+	75% {
+		content: "root@shubhamrin";
+	}
+	80% {
+		content: "root@shubhamrind";
+	}
+	85% {
+		content: "root@shubhamrindh";
+	}
+	90% {
+		content: "root@shubhamrindhe";
+	}
+	100% {
+		content: "root@shubhamrindhe";
 	}
 }

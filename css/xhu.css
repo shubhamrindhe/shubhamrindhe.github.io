@@ -1,27 +1,34 @@
-body, *{
+body, * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-.centroid{
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translate(-50%,-50%);
+.centroid {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
-.center-flex{
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	text-align:center;
-	vertical-align:middle;
+.center-flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.centroid-fixed {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .hov:hover a {
-	background:var(--hov-bg);
-	color:var(--hov-clr);
+	background: var(--hov-bg);
+	color: var(--hov-clr);
 }
 
 
