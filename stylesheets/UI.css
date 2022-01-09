@@ -119,13 +119,13 @@ header.mainHeader {
 	z-index: 100;
 }
 
-header.mainHeader span {
+/* header.mainHeader span {
 	height: 50%;
 	line-height: 50px;
 	font-size: 18px;
 	float: left;
 	font-weight: bold;
-}
+} */
 
 header.mainHeader nav {
 	float: right;
@@ -319,7 +319,7 @@ input[type="checkbox"].RootThemeSwitch:checked {
 		color: #fff;
 	}
 
-	#toggle-nav[type="checkbox"]:checked+nav {
+	#toggle-nav[type="checkbox"]:checked + label + nav {
 		/*position:absolute;*/
 		width: 100%;
 		height: calc(100vh-50px);
@@ -330,7 +330,7 @@ input[type="checkbox"].RootThemeSwitch:checked {
 		transition: 0.2s;
 	}
 
-	#toggle-nav[type="checkbox"]:not(:checked)+nav {
+	#toggle-nav[type="checkbox"]:not(:checked) + label + nav {
 		position: absolute;
 		width: 100%;
 		height: calc(100vh-50px);
@@ -343,6 +343,51 @@ input[type="checkbox"].RootThemeSwitch:checked {
 		transition: 0.2s;
 	}
 
+	.wrapper-menu {
+		width: 20px;
+		height: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		cursor: pointer;
+		transition: transform 330ms ease-out;
+	}
+
+	#toggle-nav[type="checkbox"]:checked + label > .wrapper-menu {
+		transform: rotate(-45deg);
+	}
+
+	.line-menu {
+		--strokeWidth: 4px;
+		background-color: currentColor;
+		border-radius: calc(var(--strokeWidth) / 2);
+		width: 100%;
+		height: var(--strokeWidth);
+	}
+
+	.line-menu.half {
+		width: 50%;
+	}
+
+	.line-menu.start {
+		transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+		transform-origin: right;
+	}
+
+	#toggle-nav[type="checkbox"]:checked + label .line-menu.start {
+		transform: rotate(-90deg) translateX(3px);
+	}
+
+	.line-menu.end {
+		align-self: flex-end;
+		transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+		transform-origin: left;
+	}
+
+	#toggle-nav[type="checkbox"]:checked + label .line-menu.end {
+		transform: rotate(-90deg) translateX(-3px);
+	}
+
 	a {
 		color: #fff;
 	}
@@ -351,14 +396,12 @@ input[type="checkbox"].RootThemeSwitch:checked {
 		display: none;
 	}
 
-
 	ul.social li a {
 		/*
 		width:30px;
 		height:30px;
 		*/
 	}
-
 }
 
 
