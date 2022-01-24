@@ -1,4 +1,4 @@
-import * as Drager from './drager.js';
+import * as Drager from './interact.js';
 
 export default class ESTEREGG {
 
@@ -20,7 +20,14 @@ export default class ESTEREGG {
 	}
 
 	reveal() {
-		// this.fetch()
+		let style = document.createElement('link');
+		style.setAttribute('rel', 'stylesheet');
+		style.setAttribute('type', 'text/css');
+		style.setAttribute('href', './terminal/stylesheets/terminal.css');
+		style.onload = () => {
+			this.fetch();
+		};
+		document.head.appendChild(style);
 
 		let div = document.createElement('div');
 

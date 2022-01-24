@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<meta name="author" content="shubhamrindhe" id="author" />
+	<title>Importer</title>
+</head>
+
+<body>
+	<script type="module">
+		import Importer from "./../importer.js"
+		let importerD = new Importer('cerebral-');
+		let importerA = new Importer('cerebral-');
+
+		// export default {
+		// 	ajax: paths.ajax,
+		// 	savior: paths.savior,
+		// 	activation: paths.activation,
+		// 	percptron: paths.percptron,
+		// 	matrix: paths.matrix,
+		// 	fnn: paths.FeedforwardNeuralNetwork,
+		// 	multilayerPerceptron: paths.FeedforwardNeuralNetwork
+		// };
+
+		importerD.import({
+			'ajax': (e) => { console.log(e); },
+			'matrix': (e) => { console.log(e); },
+			'savior': (e) => { console.log(e); },
+			'activation': (e) => { console.log(e); },
+			'percptron': (e) => { console.log(e); },
+			'matrix': (e) => { console.log(e); },
+			'fnn': (e) => { console.log(e); }
+		}, (x) => {
+			console.log(x);
+			console.log(new x.matrix.Matrix);
+		});
+
+		let d = new Date();
+		importerA.import([
+			'ajax',
+			'matrix',
+			'savior',
+			'activation',
+			'percptron',
+			'matrix',
+			'fnn'
+		], (x) => {
+			console.log(x, new Date() - d);
+		});
+
+		// console.log(Importer);
+	</script>
+</body>
+
+</html>

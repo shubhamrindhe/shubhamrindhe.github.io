@@ -1,6 +1,5 @@
 import ESTEREGG from './ES_TER_EGG.js';
 import HyperScript from './HyperScript.js';
-// import * as Drager from './drager.js';
 
 let reveal = (_) => {
 	let a = new ESTEREGG();
@@ -76,7 +75,7 @@ function d(x, y) {
 
 window.addEventListener('load', () => {
 	document.getElementById('mystery').onclick = (e) => {
-		reveal();
+		// reveal();
 
 		e.target.parentElement.removeChild(e.target);
 	}
