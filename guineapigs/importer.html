@@ -14,27 +14,19 @@
 		let importerD = new Importer('cerebral-');
 		let importerA = new Importer('cerebral-');
 
-		// export default {
-		// 	ajax: paths.ajax,
-		// 	savior: paths.savior,
-		// 	activation: paths.activation,
-		// 	percptron: paths.percptron,
-		// 	matrix: paths.matrix,
-		// 	fnn: paths.FeedforwardNeuralNetwork,
-		// 	multilayerPerceptron: paths.FeedforwardNeuralNetwork
-		// };
-
 		importerD.import({
-			'ajax': (e) => { console.log(e); },
-			'matrix': (e) => { console.log(e); },
-			'savior': (e) => { console.log(e); },
-			'activation': (e) => { console.log(e); },
-			'percptron': (e) => { console.log(e); },
-			'matrix': (e) => { console.log(e); },
-			'fnn': (e) => { console.log(e); }
+			ajax: (e) => { console.log(e); },
+			matrix: (e) => { console.log(e); },
+			savior: (e) => { console.log(e); },
+			activation: (e) => { console.log(e); },
+			percptron: (e) => { console.log(e); },
+			matrix: (e) => { console.log(e); },
+			fnn: (e) => { console.log(e); }
 		}, (x) => {
 			console.log(x);
-			console.log(new x.matrix.Matrix);
+			const { ajax, fnn: { default: MultilayerPerceptron}, matrix: { default: Matrix} } = x;
+			console.log(ajax, MultilayerPerceptron, Matrix);
+			// alert();
 		});
 
 		let d = new Date();
@@ -48,9 +40,10 @@
 			'fnn'
 		], (x) => {
 			console.log(x, new Date() - d);
+			const { ajax, fnn: { default: MultilayerPerceptron}, matrix: { default: Matrix} } = x;
+			console.log(ajax, MultilayerPerceptron, Matrix);
+			// alert();
 		});
-
-		// console.log(Importer);
 	</script>
 </body>
 

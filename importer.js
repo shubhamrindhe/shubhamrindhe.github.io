@@ -54,7 +54,7 @@ export default class Importer {
 			this.handleImportedModule(module, key)
 		}).catch(error => {
 			let err = new Error(`file not found in ${this.root}${relativePath}`)
-			console.error(err);
+			console.error(error);
 			if (this.errorHandler instanceof Function) {
 				this.errorHandler(key, error);
 			}
