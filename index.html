@@ -12,62 +12,11 @@
 	<meta property="og:description" content="root@shubhamrindhe" />
 	<title>root@shubhamrindhe</title>
 	<link rel="stylesheet" href="css/xhu.css" type="text/css" />
-	<link rel="stylesheet" href="stylesheets/social.css" type="text/css" />
-	<link rel="stylesheet" href="stylesheets/loader.css" type="text/css" />
-	<link rel="stylesheet" href="stylesheets/fonts.css" type="text/css" />
+	<link rel="stylesheet" href="css/social.css" type="text/css" />
+	<link rel="stylesheet" href="css/loader.css" type="text/css" />
+	<link rel="stylesheet" href="css/fonts.css" type="text/css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-	<link rel="stylesheet" href="stylesheets/UI.css" type="text/css" />
-	<style>
-		@keyframes ripple {
-			from {
-				width: 0;
-				height: 0;
-			}
-
-			to {
-				width: var(--size);
-				height: var(--size);
-			}
-		}
-
-		body {
-			--x: 100px;
-			--y: 100px;
-			--size: 0;
-			--rippleColor: transperent;
-			--rippleDuration: 1s;
-		}
-
-		body::before {
-			position: absolute;
-			z-index: -1000;
-			width: var(--size);
-			height: var(--size);
-			transform: translate(-50%, -50%);
-			top: var(--y);
-			left: var(--x);
-			content: '';
-			border-radius: 50%;
-			background: var(--rippleColor);
-			display: none;
-		}
-
-		body.ripple {
-			overflow: hidden;
-		}
-
-		body.ripple * {
-			mix-blend-mode: unset;
-			will-change: opacity;
-			backface-visibility: visible;
-		}
-
-		body.ripple::before {
-			display: block;
-			animation-name: ripple;
-			animation-duration: var(--rippleDuration);
-		}
-	</style>
+	<link rel="stylesheet" href="css/UI.css" type="text/css" />
 </head>
 
 <body>
@@ -164,7 +113,7 @@
 		</div>
 	</footer>
 
-	<script type="module" src="./scripts/index.js" defer></script>
+	<script type="module" src="./js/index.js" defer></script>
 </body>
 
 </html>

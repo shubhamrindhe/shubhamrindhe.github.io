@@ -1,17 +1,17 @@
-import * as Drager from './interact.js';
+import * as Interact from './interact.js';
 
 export default class ESTEREGG {
 
 	constructor() {}
 
 	fetch() {
-		fetch('./../terminal/terminal.html').then((data) => {
+		fetch('./components/terminal/terminal.html').then((data) => {
 			data.text().then((html) => {
 				var parser = new DOMParser();
 				var doc = parser.parseFromString(html, 'text/html');
 				document.body.appendChild(doc.body.children[0]);
 
-				Drager.makeElementDragable(
+				Interact.makeElementDragable(
 					document.getElementById("terminal"),
 					document.getElementById("terminalHeader"))
 				let terminal = new Terminal();
@@ -23,7 +23,7 @@ export default class ESTEREGG {
 		let style = document.createElement('link');
 		style.setAttribute('rel', 'stylesheet');
 		style.setAttribute('type', 'text/css');
-		style.setAttribute('href', './terminal/stylesheets/terminal.css');
+		style.setAttribute('href', './components/terminal/terminal.css');
 		style.onload = () => {
 			this.fetch();
 		};
@@ -43,7 +43,7 @@ export default class ESTEREGG {
 
 		document.getElementById('container').appendChild(div);
 
-		Drager.makeElementDragable(div);
+		Interact.makeElementDragable(div);
 	}
 }
 

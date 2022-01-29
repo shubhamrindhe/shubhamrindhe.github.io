@@ -13,6 +13,60 @@ body.darkmode {
 	color: var(--color, white);;
 }
 
+/**/
+
+@keyframes ripple {
+	from {
+		width: 0;
+		height: 0;
+	}
+
+	to {
+		width: var(--size);
+		height: var(--size);
+	}
+}
+
+body {
+	--x: 100px;
+	--y: 100px;
+	--size: 0;
+	--rippleColor: transperent;
+	--rippleDuration: 1s;
+}
+
+body::before {
+	position: absolute;
+	z-index: -1000;
+	width: var(--size);
+	height: var(--size);
+	transform: translate(-50%, -50%);
+	top: var(--y);
+	left: var(--x);
+	content: '';
+	border-radius: 50%;
+	background: var(--rippleColor);
+	display: none;
+}
+
+body.ripple {
+	overflow: hidden;
+}
+
+body.ripple * {
+	mix-blend-mode: unset;
+	will-change: opacity;
+	backface-visibility: visible;
+}
+
+body.ripple::before {
+	display: block;
+	animation-name: ripple;
+	animation-duration: var(--rippleDuration);
+}
+
+/**/
+
 .active {
 	display: block;
 }
@@ -230,7 +284,6 @@ input[type="checkbox"].RootThemeSwitch:checked {
 
 /**/
 
-
 #container {
 	min-height: calc(100vh - 105px) !important;
 	margin: 0 20px;
@@ -396,12 +449,10 @@ input[type="checkbox"].RootThemeSwitch:checked {
 		display: none;
 	}
 
+	/*
 	ul.social li a {
-		/*
-		width:30px;
-		height:30px;
-		*/
 	}
+	*/
 }
 
 

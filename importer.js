@@ -32,19 +32,6 @@ export default class Importer {
 	}
 
 	get basePath() {
-		/*
-		if (location.href.search(this.root) == -1) {
-			let path = './';
-			for (var i = 0; i < location.href.split('/').length - 4; ++i) { path += '../'; }
-			return `./${this.root}`//`${path}${this.root}`;
-		} else {
-			let path = './';
-			let relPath = location.href.split(this.root).pop();
-			for (var i = 0; i < relPath.split('/').length - 2; ++i) { path += '../'; }
-			console.log("in", path, relPath);
-			return `./${this.root}`//path;
-		}
-		*/
 		return `./${this.root}`;
 	}
 
