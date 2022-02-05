@@ -24,7 +24,7 @@
 			fnn: (e) => { console.log(e); }
 		}, (x) => {
 			console.log(x);
-			const { ajax, fnn: { default: MultilayerPerceptron}, matrix: { default: Matrix} } = x;
+			const { ajax, fnn: { default: MultilayerPerceptron }, matrix: { default: Matrix } } = x;
 			console.log(ajax, MultilayerPerceptron, Matrix);
 			// alert();
 		});
@@ -40,10 +40,36 @@
 			'fnn'
 		], (x) => {
 			console.log(x, new Date() - d);
-			const { ajax, fnn: { default: MultilayerPerceptron}, matrix: { default: Matrix} } = x;
+			const { ajax, fnn: { default: MultilayerPerceptron }, matrix: { default: Matrix } } = x;
 			console.log(ajax, MultilayerPerceptron, Matrix);
 			// alert();
 		});
+
+
+		// const modulePaths = {
+		// 	vector: "/sourcecode/vector.js",
+		// 	renderer: "/sourcecode/renderer.js",
+		// 	grapher: "/sourcecode/grapher.js",
+		// 	drawable: "/sourcecode/drawable.js",
+		// 	loopEngine: "/sourcecode/LoopEngine.js",
+		// 	utils: "/sourcecode/utils.js"
+		// };
+
+		let realmImporter = new Importer('realm');
+		realmImporter.import([
+			'vector',
+			'renderer',
+			'grapher',
+			'drawable',
+			'loopEngine',
+			'utils'
+		], (x) => {
+			console.log(x, new Date() - d);
+			// const { ajax, fnn: { default: MultilayerPerceptron }, matrix: { default: Matrix } } = x;
+			// console.log(ajax, MultilayerPerceptron, Matrix);
+			// alert();
+		});
+
 	</script>
 </body>
 

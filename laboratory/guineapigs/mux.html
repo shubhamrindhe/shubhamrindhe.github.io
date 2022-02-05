@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<meta name="author" content="shubhamrindhe" id="author" />
+	<title>Importer</title>
+</head>
+
+<body>
+
+	<select name="" id="testSelect">
+		<option value="MUX">MUX</option>
+		<option value="MUXEDImporter">MUXEDImporter</option>
+	</select>
+
+	<script type="module">
+		import Importer, { MUX, MUXEDImporter } from "./../../importer.js"
+
+		onload = () => {
+			document.getElementById('testSelect').onchange = (e) => {
+				console.clear();
+				switch (e.target.value) {
+					case 'MUX':
+						// alert(MUX);
+						testMUX();
+						break;
+					case 'MUXEDImporter':
+						// alert(MUXEDImporter);
+						testMUXEDImporter();
+						break;
+				}
+			};
+
+			testMUXEDImporter();
+		}
+
+		function testMUX() {
+			let importerD = new Importer('cerebral-');
+			let importerA = new Importer('realm');
+
+			let mux = new MUX(importerA, importerD);
+			mux.moduleImportHandler = (data) => {
+				const { rootKey, moduleKey, module } = data;
+				console.log(rootKey, moduleKey, module, data);
+				// alert();
+			};
+			mux.completionHandler = (modules) => {
+				// console.log("modules", modules);
+			};
+
+			let _ = (e) => {
+				// console.log(e);
+			};
+			importerD.import({
+				ajax: _,
+				matrix: _,
+				savior: _,
+				activation: _,
+				percptron: _,
+				matrix: _,
+				fnn: _
+			}, (x) => {
+				console.log(x);
+				const { ajax, fnn: { default: MultilayerPerceptron }, matrix: { default: Matrix } } = x;
+				console.log(ajax, MultilayerPerceptron, Matrix);
+				// alert();
+			});
+
+			let d = new Date();
+			importerA.import([
+				'vector',
+				'renderer'
+			], (x) => {
+				// console.log(x, new Date() - d);
+				// alert();
+			});
+
+			let realmImporter = new Importer('realm');
+			realmImporter.import([
+				'vector',
+				'renderer',
+				'grapher',
+				'drawable',
+				'loopEngine',
+				'utils'
+			], (x) => {
+				// console.log(x, new Date() - d);
+				// const { ajax, fnn: { default: MultilayerPerceptron }, matrix: { default: Matrix } } = x;
+				// console.log(ajax, MultilayerPerceptron, Matrix);
+				// alert();
+			});
+		}
+
+		function testMUXEDImporter() {
+			let muxedImporter = new MUXEDImporter('cerebral-', 'realm');
+
+			let _ = (e) => { console.log(e); };
+			muxedImporter.import({
+				realm: {
+					modules: {
+						vector: _,
+						renderer: _,
+						grapher: _,
+						drawable: _,
+						loopEngine: _,
+						utils: _
+					},
+					callback: (e) => console.log(e)
+				},
+
+				'cerebral-': {
+					modules: {
+						ajax: _,
+						matrix: _,
+						savior: _,
+						activation: _,
+						percptron: _,
+						matrix: _,
+						fnn: _
+					},
+					callback: (e) => console.log(e)
+				}
+			})
+
+			let muxedImporterArray = new MUXEDImporter();
+			muxedImporterArray.import({
+				realm: {
+					modules: [
+						'vector',
+						'renderer',
+						'grapher',
+						'drawable',
+						'loopEngine',
+						'utils'
+					],
+					callback: (e) => console.log(e)
+				},
+				'cerebral-': {
+					modules: [
+						'ajax',
+						'matrix',
+						'savior',
+						'activation',
+						'percptron',
+						'matrix',
+						'fnn',
+					],
+					callback: (e) => console.log(e)
+				}
+			}, (m) => { console.log(m)})
+		}
+
+
+	</script>
+</body>
+
+</html>
