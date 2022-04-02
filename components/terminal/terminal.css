@@ -4,8 +4,8 @@
 
 #terminal {
 	position: absolute;
-	width: 60%;
-	height: 60%;
+	width: 550px;
+	height: 280px;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -13,13 +13,18 @@
 	font-family: "Courier New";
 	min-width: 250px;
 	font-size: small;
-	background: rgba(0, 0, 0, 1);
+	background: #040d21;/*rgba(0, 0, 0, 1);*/
+	color: lightblue;
 	resize: both;
+	border-radius: 10px;
 }
 
 #terminal #terminalTitle:before {
 	content: attr(title-text);
 }
+
+.pe-b::before {content:attr(title-text);}
+.pe-a::after {content:attr(title-text);}
 
 #terminal header {
 	position: absolute;
@@ -27,7 +32,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	background: lightgrey;
+	cursor: grab;
 }
 
 #terminal .terminalBody {
@@ -99,9 +104,9 @@
 #buttons button {
 	padding: 0;
 	margin: 0;
-	margin-right: 4px;
-	width: 20px;
-	height: 20px;
+	margin-right: 3px;
+	width: 15px;
+	height: 15px;
 	background-color: gainsboro;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
@@ -179,18 +184,26 @@
 
 #terminal nav ul li {
 	list-style: none;
+
+	height: 20px;
+	line-height: 20px;
+	padding: 0 10px;
+	color: lightblue;
+	/* text-decoration: none; */
+	cursor: pointer;
+	display: block;
 }
 
-#terminal nav ul li a {
+/* #terminal nav ul li a {
 	height: 20px;
 	line-height: 20px;
 	padding: 0 10px;
 	color: lightblue;
 	text-decoration: none;
 	display: block;
-}
+} */
 
-#terminal nav ul li a:hover {
+#terminal nav ul li:hover {
 	color: #000;
 	background: #fff;
 }

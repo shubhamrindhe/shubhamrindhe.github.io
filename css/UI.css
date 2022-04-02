@@ -97,7 +97,7 @@ a {
 	}
 }
 
-#ascii-art {
+/* #ascii-art {
 	z-index: -100;
 	display: none;
 	line-height: 8px;
@@ -107,7 +107,7 @@ a {
 	font-family: monospace;
 	color: #000;
 	background: #fff;
-}
+} */
 
 body.darkmode #ascii-art {
 	/*

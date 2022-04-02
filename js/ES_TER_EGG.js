@@ -2,7 +2,7 @@ import * as Interact from './interact.js';
 
 export default class ESTEREGG {
 
-	constructor() {}
+	constructor() { }
 
 	fetch() {
 		fetch('./components/terminal/terminal.html').then((data) => {
@@ -15,6 +15,15 @@ export default class ESTEREGG {
 					document.getElementById("terminal"),
 					document.getElementById("terminalHeader"))
 				let terminal = new Terminal();
+
+
+				fetch('../assets/ascii-arts/skull').then((res) => {
+					res.text().then((text) => {
+						document.getElementById("ascii-art").innerHTML = text;
+						console.log(document.getElementById("ascii-art").textContent, text);
+					});
+				});
+
 			});
 		})
 	}

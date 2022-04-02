@@ -83,7 +83,7 @@ window.addEventListener('load', () => {
 	// Drager.makeElementDragable(document.getElementById('mystery'));
 
 	//test
-	//reveal();
+	// reveal();
 
 	// document.getElementById('themeToggle').onchange = (e) => { toggleRootTheme(e.target); }
 

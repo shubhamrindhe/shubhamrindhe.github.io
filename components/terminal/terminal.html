@@ -1,6 +1,6 @@
 <section id="terminal">
 	<header id="terminalHeader">
-		<span class="centroid" id="terminalTitle" title-text="root@rshubham"></span>
+		<span class="centroid pe-b" id="terminalTitle" title-text="root@rshubham"></span>
 		<div id="buttons">
 			<button class="close" style="margin:5px 5px;"></button>
 			<button class="minimize" style="margin:5px 5px;"></button>
@@ -9,16 +9,15 @@
 	</header>
 	<nav id='nav'>
 		<ul>
-			<li><a href='#' onclick="document.getElementById('commandHistory').innerHTML = '';">Clear</a></li>
-			<li><a href='#' style="float:right;!important">-</a></li>
-			
-			<li id="gethelp"><a href='#'>Get Help?</a></li>
+			<li class="pe-b" title-text="Clear" onclick="document.getElementById('commandHistory').innerHTML = '';"></li>
+			<li class="pe-b" title-text="Doodle"></li>
+			<li class="pe-b" title-text="Notes"></li>
+			<li class="pe-b" title-text="Get Help?" id="gethelp"></li>
 		</ul>
 	</nav>
 	<div class="terminalBody">
-		<pre id="ascii-art" class="centroid-fixed" style="display:block;line-height:5px; font-size:5px; font-weight:900;white-space:pre;font-family: monospace;color: lightblue; background: black;"></pre>
-		<canvas class="centroid" id="shell-canvas" style="position:fixed;z-index:-50;" onclick="document.getElementById('command').focus();return false;">
-		</canvas>
+		<pre id="ascii-art" class="centroid-fixed" style="display:block;line-height:5px; font-size:5px; font-weight:900;white-space:pre;font-family: monospace;background-color: inherit;"></pre>
+		<canvas class="centroid" id="shell-canvas" style="position:fixed;z-index:-50;" onclick="document.getElementById('command').focus();return false;"></canvas>
 		<pre id="commandHistory" style="margin:0;"></pre>
 		<section id="commandLine">
 			<input type='text' type="text" id="command" spellcheck="false" onkeydown='' style="font-family:Courier New;height:30px;margin:0;" />
