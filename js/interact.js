@@ -64,3 +64,14 @@ export function makeElementDragable(element, dragTrigger) {
 
 	eventTarget.ontouchstart = startDragTouch;
 }
+
+export class KeyBoardListener {
+
+	constructor() {
+
+	}
+
+	destroy() {
+
+	}
+}

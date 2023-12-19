@@ -40,10 +40,10 @@
 		onload = () => {
 			bringMeTerminal('./');
 			setTimeout(() => {
-				let ctx = document.getElementById('shell-canvas').getContext('2d');
+				let ctx = document.getElementById('TERMINAL_CANVAS').getContext('2d');
 				ctx.fillStyle = 'red'
 				// ctx.fillRect(0,0,100,100);
-				let canvas = document.getElementById('shell-canvas');
+				let canvas = document.getElementById('TERMINAL_CANVAS');
 
 				let rect = document.getElementById('terminal').getBoundingClientRect()
 				canvas.width = rect.width

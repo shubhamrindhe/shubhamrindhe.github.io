@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	<meta name="author" content="shubhamrindhe" id="author"/>
+	<title>Web Workers</title>
+</head>
+
+<body>
+
+	<span id="__"></span>
+
+	<script type="module">
+
+		let prime = () => {
+
+		}
+
+		let sigma = (_) => {
+			let sum = 0;
+			for (var i = 0; i <= _; ++i) {
+				sum += i;
+			}
+
+			return sum;
+		};
+
+		let param = 100000000//10000000000;
+
+		let start = new Date();
+		let sum = sigma(param);
+		console.log("sum", sum, new Date() - start);
+
+		let worker = new Worker('worker.js');
+		worker.postMessage(param);
+
+		worker.onmessage = e => {
+			// console.clear();
+			document.getElementById('__').textContent = e.data;
+			// console.log(e.data);
+		}
+
+	</script>
+</body>
+
+</html>

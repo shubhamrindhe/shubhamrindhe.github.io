@@ -1,10 +1,11 @@
-
-const MODULES_CACHE = {};
+const MODULES_CACHE = {}, EXPORTER_CACHE = {}
+const EXPORT_FILE_NAME = 'export.js', PATH_2_ROOT = './..'
 
 export default class Importer {
 
-	constructor(root) {
+	constructor(root, exportMapKey = 'default') {
 		this.root = root;
+		this.exportMapKey = exportMapKey;
 		this.modulePaths = null;
 		this.modules = {};
 		this.finalCallback = null;
@@ -15,8 +16,8 @@ export default class Importer {
 		this.subscribers = [];
 	}
 
-	get exportPath() { return `${this.basePath}/export.js`; }
-	get basePath() { return `./${this.root}`; }
+	get exportPath() { return `${this.basePath}/${EXPORT_FILE_NAME}`; }
+	get basePath() { return `${PATH_2_ROOT}/${this.root}`; }
 	get allFetched() { return this.modulesToImport.size == this.importedModules.size; }
 
 	addSubscriber(subscriber) {
@@ -47,15 +48,12 @@ export default class Importer {
 		}
 
 		const relativePath = this.modulePaths[key];
-		import(`${this.basePath}${relativePath}`).then(module => {
-			this.handleImportedModule(key, module)
-		}).catch(error => {
-			let err = new Error(`file not found in ${this.root}${relativePath}`)
-			console.error(error);
-			if (this.errorHandler instanceof Function) {
-				this.errorHandler(key, error);
-			}
-		});
+		import(`${this.basePath}${relativePath}`)
+			.then(module => { this.handleImportedModule(key, module) })
+			.catch(error => {
+				console.error(error, new Error(`file not found in ${this.root}${relativePath}`))
+				if (this.errorHandler instanceof Function) { this.errorHandler(key, error) }
+			});
 	}
 
 	handleImportedModule(key, module) {
@@ -94,23 +92,16 @@ export default class Importer {
 			this.modulesToImport = new Set(Object.keys(moduleData));
 		}
 
-		if (finalCallback instanceof Function) {
-			this.finalCallback = finalCallback;
-		}
+		if (finalCallback instanceof Function) { this.finalCallback = finalCallback }
 	}
 
 	async import(moduleData, finalCallback = null) {
 		try {
-			const { default: paths } = await import(this.exportPath);
-			this.modulePaths = paths;
+			const exportData = await import(this.exportPath);
+			this.modulePaths = exportData[this.exportMapKey];
 			this.beginImport(moduleData, finalCallback);
-
-			this.modulesToImport.forEach(key => {
-				this.importModuleWithKey(key);
-			});
-		} catch (error) {
-			console.log(error);
-		}
+			this.modulesToImport.forEach(key => { this.importModuleWithKey(key); });
+		} catch (error) { console.log(error); }
 	}
 };
 

@@ -9,8 +9,11 @@
 </head>
 
 <body>
+	<button id="TEST">TEST</button>
+
 	<script type="module">
-		import Importer from "./../../importer.js"
+		import Importer from '/$/importer.js'
+
 		let importerD = new Importer('cerebral-');
 		let importerA = new Importer('cerebral-');
 
@@ -19,7 +22,7 @@
 			matrix: (e) => { console.log(e); },
 			savior: (e) => { console.log(e); },
 			activation: (e) => { console.log(e); },
-			percptron: (e) => { console.log(e); },
+			perceptron: (e) => { console.log(e); },
 			matrix: (e) => { console.log(e); },
 			fnn: (e) => { console.log(e); }
 		}, (x) => {
@@ -35,7 +38,7 @@
 			'matrix',
 			'savior',
 			'activation',
-			'percptron',
+			'perceptron',
 			'matrix',
 			'fnn'
 		], (x) => {
@@ -69,6 +72,26 @@
 			// console.log(ajax, MultilayerPerceptron, Matrix);
 			// alert();
 		});
+
+
+		// document.getElementById('TEST').onclick = async (_) => {
+		// 	let __ = new Date();
+
+		// 	// let realmImporter = new Importer('realm');
+		// 	// let x = await srealmImporter.import([
+		// 	// 	'vector',
+		// 	// 	'renderer',
+		// 	// 	'grapher',
+		// 	// 	'drawable',
+		// 	// 	'loopEngine',
+		// 	// 	'utils'
+		// 	// ], (x) => {
+		// 	// 	console.log(x, new Date() - __);
+		// 	// });
+
+		// 	let x = await import("./../../importer.js");
+		// 	console.log('A', x, new Date() - __);
+		// }
 
 	</script>
 </body>

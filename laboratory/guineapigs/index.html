@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<meta name="author" content="shubhamrindhe" id="author" />
+	<title>Index</title>
+
+	<style id="css">
+
+		div::after {
+			content: '1011';
+		}
+
+		div::before {
+			content: '1011';
+		}
+
+	</style>
+
+</head>
+
+<body>
+	<button id="TEST">TEST</button>
+
+	<div>DIV</div>
+
+	<a href="/" data-link>Home</a>
+	<!-- <a href="./exibition" data-link>Exibition</a>
+	<a href="./settings" data-link>Settings</a> -->
+
+	<a href="/posts" data-link>Exibition</a>
+	<a href="/posts/1/2" data-link>Settings</a>
+
+	<div id="app"></div>
+
+	<!-- <header-component-/> -->
+
+	<script type="module">
+		import { core } from '/$/core.js'
+
+		onload = console.log(new Date().getSeconds())
+
+		// console.log(core);
+		// console.log(core.router);
+
+		if (!core.router) {
+			core.router = (_) => {
+				console.log(_)
+				_.anchorLinks()
+			}
+		}
+
+		if (!core.importer) {
+			core.importer = (_) => {
+				console.log(_)
+			}
+		}
+
+		document.getElementById('TEST').onclick = async (_) => {
+			// let __ = new Date();
+			// inc()
+			// let x = await import('./../../_core/core.js');
+			// console.log('A', x, new Date() - __);
+
+			// console.log(document.getElementById('css').styleSheet)
+
+			console.log(document.styleSheets[0].insertRule("div::before { color: red }", 0))
+
+
+
+			const mediaRuleText =
+			// `
+			// @media only screen and(min-width: 1050px) { div { color: blue; } }
+			// @media only screen and(max-width: 1050px) { div { color: yellow; } }
+			// `
+`@media screen and (min-width: 500px) {
+  div {
+    background-color: blue;
+  }
+}`;
+			// document.styleSheets[0].insertRule(`
+			// @media only screen and(min-width: 1050px) { div { color: blue; } }
+			// @media only screen and(max-width: 1050px) { div { color: yellow; } }
+			// `)
+
+			let styleSheet = document.styleSheets[0]
+
+			const mediaRuleIndex = styleSheet.insertRule(mediaRuleText);
+			const mediaRule = styleSheet.cssRules[mediaRuleIndex];
+
+			mediaRule.cssRules[0].selectorText; // ".example"
+			mediaRule.cssRules[0].style.backgroundColor;
+
+			console.log(mediaRule.cssRules[0].selectorText)
+			console.log(mediaRule.cssRules[0].style.backgroundColor)
+
+
+			styleSheet.insertRule(
+`@media screen and (max-width: 500px) {
+  div {
+    background-color: yellow;
+  }
+}`);
+		}
+
+
+		class ELE extends HTMLElement {
+
+		}
+
+
+
+	</script>
+</body>
+
+<script>
+class Header extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
+      <style>
+        nav {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color:  #0a0a23;
+        }
+
+        ul {
+          padding: 0;
+        }
+
+        a {
+          font-weight: 700;
+          margin: 0 25px;
+          color: #fff;
+          text-decoration: none;
+        }
+
+        a:hover {
+          padding-bottom: 5px;
+          box-shadow: inset 0 -2px 0 0 #fff;
+        }
+      </style>
+      <header>
+        <nav>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+    `;
+  }
+}
+
+customElements.define('header-component-', Header);
+
+
+</script>
+
+</html>
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet -->

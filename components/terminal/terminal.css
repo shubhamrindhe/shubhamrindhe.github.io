@@ -2,7 +2,7 @@
 	color: #0f0;
 }
 
-#terminal {
+#TERMINAL {
 	position: absolute;
 	width: 550px;
 	height: 280px;
@@ -19,14 +19,14 @@
 	border-radius: 10px;
 }
 
-#terminal #terminalTitle:before {
+#TERMINAL #terminalTitle:before {
 	content: attr(title-text);
 }
 
 .pe-b::before {content:attr(title-text);}
 .pe-a::after {content:attr(title-text);}
 
-#terminal header {
+#TERMINAL header {
 	position: absolute;
 	height: 40px;
 	top: 0;
@@ -35,7 +35,7 @@
 	cursor: grab;
 }
 
-#terminal .terminalBody {
+#TERMINAL .terminalBody {
 	position: absolute;
 	bottom: 0;
 	height: calc(100% - 60px);
@@ -46,7 +46,7 @@
 	overflow-y: scroll;
 }
 
-#terminal header #closeTerminal {
+#TERMINAL header #closeTerminal {
 	position: absolute;
 	background: lightgrey;
 	width: 40px;
@@ -55,16 +55,16 @@
 	border-radius: 50%;
 }
 
-#terminal header #closeTerminal:hover {
+#TERMINAL header #closeTerminal:hover {
 	background: #dd4b39;
 	color: #fff;
 }
 
-#terminal #terminalBody {
+#TERMINAL #terminalBody {
 	background: rgba(0, 0, 0, 1);
 }
 
-#terminal #ascii-art {
+#TERMINAL #ascii-art {
 	font-family: Courier New;
 	font-size: x-small;
 	color: lightblue;
@@ -168,21 +168,21 @@
 	line-height: 1;
 }
 
-#terminal nav {
+#TERMINAL nav {
 	position: absolute;
 	left: 0;
 	top: 40px;
 	width: 100%;
 }
 
-#terminal nav ul {
+#TERMINAL nav ul {
 	margin: 0;
 	padding: 0;
 	display: flex;
 	width: 100%;
 }
 
-#terminal nav ul li {
+#TERMINAL nav ul li {
 	list-style: none;
 
 	height: 20px;
@@ -203,7 +203,7 @@
 	display: block;
 } */
 
-#terminal nav ul li:hover {
+#TERMINAL nav ul li:hover {
 	color: #000;
 	background: #fff;
 }

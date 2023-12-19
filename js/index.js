@@ -1,13 +1,13 @@
 import ESTEREGG from './ES_TER_EGG.js';
 import HyperScript from './HyperScript.js';
 
-let reveal = (_) => {
-	let a = new ESTEREGG();
-	a.reveal();
+// let hatch = (_) => {
+// 	let a = new ESTEREGG();
+// 	a.reveal();
 
-	let hs = new HyperScript();
-	hs.html("div.class1.class2.class3#id");
-};
+// 	let hs = new HyperScript();
+// 	hs.html("div.class1.class2.class3#id");
+// };
 
 function toggleRootTheme(target) {
 	if (target.checked)
@@ -75,7 +75,7 @@ function d(x, y) {
 
 window.addEventListener('load', () => {
 	document.getElementById('mystery').onclick = (e) => {
-		// reveal();
+		ESTEREGG.hatch();
 
 		e.target.parentElement.removeChild(e.target);
 	}
